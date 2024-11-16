@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bae1cf0fb645f197e54e0bd53a7b2f, type: 3}
+  m_Name: EntityValueSettings
+  m_EditorClassIdentifier: 
+  local: 0
+  namespace: Atomic.Entities
+  directoryPath: Assets/Game/GameEngine/Atomic/Codegen
+  suffix: API
+  imports:
+  - Atomic.Elements
+  categories:
+  - name: Movement
+    indexes:
+    - id: 1
+      name: MovementSpeed
+      type: ReactiveVariable<float>
+    - id: 2
+      name: MoveDirection
+      type: ReactiveVariable<Vector3>
+    - id: 5
+      name: RotationSpeed
+      type: ReactiveVariable<float>
+    - id: 7
+      name: MinimalRotationDelta
+      type: float
+  - name: Core
+    indexes:
+    - id: 3
+      name: Transform
+      type: Transform
+    - id: 6
+      name: Rigidbody
+      type: Rigidbody
