@@ -1,0 +1,73 @@
+{
+    "name": "Default Controls",
+    "maps": [
+        {
+            "name": "Character Map",
+            "id": "9bc75c5a-313b-4b1a-9976-f7eff440e6ae",
+            "actions": [
+                {
+                    "name": "Move Action",
+                    "type": "Value",
+                    "id": "acf5e598-2ad2-49ec-be3d-9e36cbd727b7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "913e76a0-fc3d-40fe-85d3-51244f9faa58",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "MouseSwipe",
+                    "id": "05c289c1-d531-48d6-b3b2-031058bb6b34",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Action",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "23c6b5fe-f09e-42eb-ac51-d8e131cb2e14",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Action",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "db4d3e2b-b022-441a-96f8-5229153e0f4f",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Action",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": []
+        }
+    ]
+}
