@@ -8,19 +8,22 @@ namespace Game.Gameplay.Character
     {
         private IValue<Vector3> _moveDirection;
         private IValue<float> _movementSpeed;
+        private IValue<bool> _canMove;
         private Rigidbody _rigidbody;
-        private Transform _root;
         
         public void Init(IEntity entity)
         {
             _moveDirection = entity.GetMoveDirection();
-            _root = entity.GetTransform();
             _rigidbody = entity.GetRigidbody();
             _movementSpeed = entity.GetMovementSpeed();
+            _canMove = entity.GetCanMove();
         }
 
         public void OnFixedUpdate(IEntity entity, float deltaTime)
         {
+            if (_canMove.Value == false)
+                return;
+            
             var moveDirection = _moveDirection.Value;
             
             if (moveDirection != Vector3.zero)

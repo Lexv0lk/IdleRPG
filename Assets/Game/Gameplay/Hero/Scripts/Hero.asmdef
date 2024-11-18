@@ -1,11 +1,12 @@
 {
-    "name": "DI",
+    "name": "Hero",
     "rootNamespace": "",
     "references": [
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:a953053e80bb4f599f6a51d42532f103",
         "GUID:1528ad0bee2dc5746a4d617fdef30caa",
         "GUID:0069adc36b214a78896495f4ffd0a95f",
-        "GUID:2de8fe55b9de40c43a035d79e72c8355"
+        "GUID:f06f28e7a0d24ff18d1b4e4acec49d4d",
+        "GUID:9b64eec51685d34489666bd916a92069"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -29,7 +29,7 @@ public partial class @DefaultControls: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move Action"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""acf5e598-2ad2-49ec-be3d-9e36cbd727b7"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -38,17 +38,6 @@ public partial class @DefaultControls: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""913e76a0-fc3d-40fe-85d3-51244f9faa58"",
-                    ""path"": ""<Touchscreen>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move Action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""MouseSwipe"",
                     ""id"": ""05c289c1-d531-48d6-b3b2-031058bb6b34"",
@@ -74,7 +63,40 @@ public partial class @DefaultControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""db4d3e2b-b022-441a-96f8-5229153e0f4f"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""TouchSwipe"",
+                    ""id"": ""894ed997-7656-4002-af1a-c288360d2697"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Action"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""31c62b81-0b69-4900-8e54-ee3b017d4870"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""40dd9a98-de2a-4f00-abd6-c67c52e63936"",
+                    ""path"": ""<Touchscreen>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

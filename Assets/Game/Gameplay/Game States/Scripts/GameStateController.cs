@@ -7,28 +7,19 @@ namespace Game.Gameplay.GameStates
     {
         private GameStateModel _gameStateModel;
 
-        private IGameStateHandler _initializeHandler;
-        private IGameStateHandler _startHandler;
-        private IGameStateHandler _pauseHandler;
-        private IGameStateHandler _resumeHandler;
-        private IGameStateHandler _finishHandler;
+        private readonly IGameStateHandler _initializeHandler = new GameInitializeHandler();
+        private readonly IGameStateHandler _startHandler = new GameStartHandler();
+        private readonly IGameStateHandler _pauseHandler = new GamePauseHandler();
+        private readonly IGameStateHandler _resumeHandler = new GameResumeHandler();
+        private readonly IGameStateHandler _finishHandler = new GameFinishHandler();
         
-        private IGameUpdateHandler _updateHandler;
-        private IGameUpdateHandler _fixedUpdateHandler;
+        private readonly IGameUpdateHandler _updateHandler = new GameSimpleUpdateHandler();
+        private readonly IGameUpdateHandler _fixedUpdateHandler = new GameFixedUpdateHandler();
         
         [Inject]
         private void Construct(GameStateModel gameStateModel)
         {
             _gameStateModel = gameStateModel;
-
-            _initializeHandler = new GameInitializeHandler();
-            _startHandler = new GameStartHandler();
-            _pauseHandler = new GamePauseHandler();
-            _resumeHandler = new GameResumeHandler();
-            _finishHandler = new GameFinishHandler();
-
-            _updateHandler = new GameSimpleUpdateHandler();
-            _fixedUpdateHandler = new GameFixedUpdateHandler();
         }
         
         private void Awake()
@@ -73,5 +64,39 @@ namespace Game.Gameplay.GameStates
         {
             _finishHandler.Handle(_gameStateModel);
         }
+
+        #region Registrations
+
+        public void Register(IGameStateListener gameStateListener)
+        {
+            _initializeHandler.Register(gameStateListener);
+            _startHandler.Register(gameStateListener);
+            _pauseHandler.Register(gameStateListener);
+            _resumeHandler.Register(gameStateListener);
+            _finishHandler.Register(gameStateListener);
+        }
+        
+        public void Register(IGameUpdateListener gameUpdateListener)
+        {
+            _updateHandler.Register(gameUpdateListener);
+            _fixedUpdateHandler.Register(gameUpdateListener);
+        }
+        
+        public void Remove(IGameStateListener gameStateListener)
+        {
+            _initializeHandler.Remove(gameStateListener);
+            _startHandler.Remove(gameStateListener);
+            _pauseHandler.Remove(gameStateListener);
+            _resumeHandler.Remove(gameStateListener);
+            _finishHandler.Remove(gameStateListener);
+        }
+        
+        public void Remove(IGameUpdateListener gameUpdateListener)
+        {
+            _updateHandler.Remove(gameUpdateListener);
+            _fixedUpdateHandler.Remove(gameUpdateListener);
+        }
+
+        #endregion
     }
 }

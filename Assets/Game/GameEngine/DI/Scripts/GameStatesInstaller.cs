@@ -1,10 +1,15 @@
 using Game.Gameplay.GameStates;
 using Zenject;
 
-public class GameStatesInstaller : MonoInstaller
+namespace GameEngine.DI
 {
-    public override void InstallBindings()
+    public class GameStatesInstaller : MonoInstaller
     {
-        Container.Bind<GameStateModel>().FromNew().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<GameStateModel>().FromNew().AsSingle();
+            Container.Bind<GameStateController>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<GameListenersInitializer>().AsSingle().NonLazy();
+        }
     }
 }

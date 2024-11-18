@@ -33,6 +33,12 @@ MonoBehaviour:
     - id: 7
       name: MinimalRotationDelta
       type: float
+    - id: 4
+      name: CanMove
+      type: ReactiveVariable<bool>
+    - id: 8
+      name: IsMoving
+      type: ReactiveVariable<bool>
   - name: Core
     indexes:
     - id: 3

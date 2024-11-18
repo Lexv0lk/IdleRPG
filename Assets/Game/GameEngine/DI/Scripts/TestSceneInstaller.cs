@@ -1,12 +1,15 @@
 using Modules.Input;
 using Zenject;
 
-public class TestSceneInstaller : MonoInstaller
+namespace GameEngine.DI
 {
-    public override void InstallBindings()
+    public class TestSceneInstaller : MonoInstaller
     {
-        Container.Bind<DefaultControls>().FromNew().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<DefaultControls>().FromNew().AsSingle();
         
-        Container.BindInterfacesAndSelfTo<SwipeInput>().AsSingle().NonLazy();
-    }
+            Container.BindInterfacesAndSelfTo<SwipeInput>().AsSingle().NonLazy();
+        }
+    } 
 }

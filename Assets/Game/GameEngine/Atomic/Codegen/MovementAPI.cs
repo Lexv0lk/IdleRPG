@@ -16,6 +16,8 @@ namespace Atomic.Entities
         public const int MoveDirection = 2; // ReactiveVariable<Vector3>
         public const int RotationSpeed = 5; // ReactiveVariable<float>
         public const int MinimalRotationDelta = 7; // float
+        public const int CanMove = 4; // ReactiveVariable<bool>
+        public const int IsMoving = 8; // ReactiveVariable<bool>
 
 
         ///Extensions
@@ -90,5 +92,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetMinimalRotationDelta(this IEntity obj, float value) => obj.SetValue(MinimalRotationDelta, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetCanMove(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(CanMove);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanMove(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(CanMove, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanMove(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(CanMove, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanMove(this IEntity obj) => obj.HasValue(CanMove);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanMove(this IEntity obj) => obj.DelValue(CanMove);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanMove(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(CanMove, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetIsMoving(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsMoving);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsMoving(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsMoving, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsMoving(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsMoving, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsMoving(this IEntity obj) => obj.HasValue(IsMoving);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsMoving(this IEntity obj) => obj.DelValue(IsMoving);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsMoving(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsMoving, value);
     }
 }
