@@ -47,3 +47,41 @@ MonoBehaviour:
     - id: 6
       name: Rigidbody
       type: Rigidbody
+  - name: Combat
+    indexes:
+    - id: 9
+      name: Target
+      type: ReactiveVariable<IEntity>
+    - id: 10
+      name: VisionAngle
+      type: ReactiveVariable<float>
+    - id: 11
+      name: VisionDistance
+      type: ReactiveVariable<float>
+    - id: 12
+      name: Damage
+      type: ReactiveVariable<int>
+    - id: 13
+      name: AttackRate
+      type: ReactiveVariable<float>
+    - id: 14
+      name: Health
+      type: ReactiveVariable<int>
+    - id: 15
+      name: CanAttack
+      type: AndExpression
+    - id: 16
+      name: AttackRange
+      type: ReactiveVariable<float>
+    - id: 17
+      name: DistanceToTarget
+      type: ReactiveVariable<float>
+    - id: 18
+      name: AttackRequest
+      type: BaseEvent
+    - id: 19
+      name: AttackAction
+      type: BaseEvent
+    - id: 21
+      name: AttackStopAction
+      type: BaseEvent
