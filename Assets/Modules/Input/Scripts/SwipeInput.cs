@@ -25,6 +25,7 @@ namespace Modules.Input
             
             _controls.CharacterMap.MoveAction.started += OnMoveActionStarted;
             _controls.CharacterMap.MoveAction.performed += OnMoveActionPerformed;
+            _controls.CharacterMap.MoveAction.canceled += OnMoveActionCanceled;
         }
 
         private void OnMoveActionStarted(InputAction.CallbackContext context)
@@ -38,10 +39,16 @@ namespace Modules.Input
             DirectionMoved?.Invoke((_currentPos - _startPos).normalized);
         }
 
+        private void OnMoveActionCanceled(InputAction.CallbackContext context)
+        {
+            DirectionMoved?.Invoke(Vector2.zero);
+        }
+
         public void Dispose()
         {
             _controls.CharacterMap.MoveAction.started -= OnMoveActionStarted;
             _controls.CharacterMap.MoveAction.performed -= OnMoveActionPerformed;
+            _controls.CharacterMap.MoveAction.canceled -= OnMoveActionCanceled;
         }
     } 
 }
