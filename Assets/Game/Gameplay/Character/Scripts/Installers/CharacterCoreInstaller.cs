@@ -1,19 +1,19 @@
 using System;
-using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game.Gameplay.Character
 {
     [Serializable]
     public class CharacterCoreInstaller : IEntityInstaller
     {
-        [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private NavMeshAgent _navMeshAgent;
         [SerializeField] private Transform _transform;
         
         public void Install(IEntity entity)
         {
-            entity.AddRigidbody(_rigidbody);
+            entity.AddNavMeshAgent(_navMeshAgent);
             entity.AddTransform(_transform);
         }
     }

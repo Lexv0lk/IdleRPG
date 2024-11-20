@@ -18,6 +18,7 @@ MonoBehaviour:
   suffix: API
   imports:
   - Atomic.Elements
+  - UnityEngine.AI
   categories:
   - name: Movement
     indexes:
@@ -39,14 +40,23 @@ MonoBehaviour:
     - id: 8
       name: IsMoving
       type: ReactiveVariable<bool>
+    - id: 6
+      name: Destination
+      type: ReactiveVariable<Vector3>
+    - id: 24
+      name: DistanceToDestination
+      type: ReactiveVariable<float>
+    - id: 26
+      name: StoppingDistance
+      type: ReactiveVariable<float>
   - name: Core
     indexes:
     - id: 3
       name: Transform
       type: Transform
-    - id: 6
-      name: Rigidbody
-      type: Rigidbody
+    - id: 20
+      name: NavMeshAgent
+      type: NavMeshAgent
   - name: Combat
     indexes:
     - id: 9
@@ -85,3 +95,14 @@ MonoBehaviour:
     - id: 21
       name: AttackStopAction
       type: BaseEvent
+  - name: Patrol
+    indexes:
+    - id: 22
+      name: Waypoints
+      type: Transform[]
+    - id: 23
+      name: CurrentWaypointIndex
+      type: ReactiveInt
+    - id: 25
+      name: CanPatrol
+      type: ReactiveBool

@@ -6,6 +6,7 @@ using UnityEngine;
 using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
+using UnityEngine.AI;
 
 namespace Atomic.Entities
 {
@@ -18,6 +19,9 @@ namespace Atomic.Entities
         public const int MinimalRotationDelta = 7; // float
         public const int CanMove = 4; // ReactiveVariable<bool>
         public const int IsMoving = 8; // ReactiveVariable<bool>
+        public const int Destination = 6; // ReactiveVariable<Vector3>
+        public const int DistanceToDestination = 24; // ReactiveVariable<float>
+        public const int StoppingDistance = 26; // ReactiveVariable<float>
 
 
         ///Extensions
@@ -128,5 +132,59 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetIsMoving(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsMoving, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<Vector3> GetDestination(this IEntity obj) => obj.GetValue<ReactiveVariable<Vector3>>(Destination);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDestination(this IEntity obj, out ReactiveVariable<Vector3> value) => obj.TryGetValue(Destination, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDestination(this IEntity obj, ReactiveVariable<Vector3> value) => obj.AddValue(Destination, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDestination(this IEntity obj) => obj.HasValue(Destination);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDestination(this IEntity obj) => obj.DelValue(Destination);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDestination(this IEntity obj, ReactiveVariable<Vector3> value) => obj.SetValue(Destination, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<float> GetDistanceToDestination(this IEntity obj) => obj.GetValue<ReactiveVariable<float>>(DistanceToDestination);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDistanceToDestination(this IEntity obj, out ReactiveVariable<float> value) => obj.TryGetValue(DistanceToDestination, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDistanceToDestination(this IEntity obj, ReactiveVariable<float> value) => obj.AddValue(DistanceToDestination, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDistanceToDestination(this IEntity obj) => obj.HasValue(DistanceToDestination);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDistanceToDestination(this IEntity obj) => obj.DelValue(DistanceToDestination);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDistanceToDestination(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(DistanceToDestination, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<float> GetStoppingDistance(this IEntity obj) => obj.GetValue<ReactiveVariable<float>>(StoppingDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetStoppingDistance(this IEntity obj, out ReactiveVariable<float> value) => obj.TryGetValue(StoppingDistance, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddStoppingDistance(this IEntity obj, ReactiveVariable<float> value) => obj.AddValue(StoppingDistance, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasStoppingDistance(this IEntity obj) => obj.HasValue(StoppingDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelStoppingDistance(this IEntity obj) => obj.DelValue(StoppingDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetStoppingDistance(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(StoppingDistance, value);
     }
 }

@@ -10,7 +10,6 @@ namespace Game.Gameplay.Character
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private AnimatorDispatcher _animatorDispatcher;
-        [SerializeField] private GameObject _weaponObject;
 
         [Header("Animation Keys")] 
         [SerializeField] private string _moveBoolean = "IsMoving";
@@ -26,11 +25,9 @@ namespace Game.Gameplay.Character
             BoolAnimationBehaviour movingAnimationBehavior = new BoolAnimationBehaviour(entity.GetIsMoving(), _animator, Animator.StringToHash(_moveBoolean));
             AttackAnimationBehaviour attackAnimationBehaviour = new AttackAnimationBehaviour(_animator,
                 _animatorDispatcher, _attackTrigger, _attackStopTrigger, _attackedEvent);
-            WeaponToggleBehaviour weaponToggleBehaviour = new WeaponToggleBehaviour(_weaponObject);
             
             entity.AddBehaviour(movingAnimationBehavior);
             entity.AddBehaviour(attackAnimationBehaviour);
-            entity.AddBehaviour(weaponToggleBehaviour);
         }
     }
 }

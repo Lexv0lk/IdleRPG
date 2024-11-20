@@ -6,6 +6,7 @@ using UnityEngine;
 using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
+using UnityEngine.AI;
 
 namespace Atomic.Entities
 {
@@ -13,7 +14,7 @@ namespace Atomic.Entities
     {
         ///Keys
         public const int Transform = 3; // Transform
-        public const int Rigidbody = 6; // Rigidbody
+        public const int NavMeshAgent = 20; // NavMeshAgent
 
 
         ///Extensions
@@ -36,21 +37,21 @@ namespace Atomic.Entities
         public static void SetTransform(this IEntity obj, Transform value) => obj.SetValue(Transform, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Rigidbody GetRigidbody(this IEntity obj) => obj.GetValue<Rigidbody>(Rigidbody);
+        public static NavMeshAgent GetNavMeshAgent(this IEntity obj) => obj.GetValue<NavMeshAgent>(NavMeshAgent);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetRigidbody(this IEntity obj, out Rigidbody value) => obj.TryGetValue(Rigidbody, out value);
+        public static bool TryGetNavMeshAgent(this IEntity obj, out NavMeshAgent value) => obj.TryGetValue(NavMeshAgent, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddRigidbody(this IEntity obj, Rigidbody value) => obj.AddValue(Rigidbody, value);
+        public static bool AddNavMeshAgent(this IEntity obj, NavMeshAgent value) => obj.AddValue(NavMeshAgent, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasRigidbody(this IEntity obj) => obj.HasValue(Rigidbody);
+        public static bool HasNavMeshAgent(this IEntity obj) => obj.HasValue(NavMeshAgent);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelRigidbody(this IEntity obj) => obj.DelValue(Rigidbody);
+        public static bool DelNavMeshAgent(this IEntity obj) => obj.DelValue(NavMeshAgent);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetRigidbody(this IEntity obj, Rigidbody value) => obj.SetValue(Rigidbody, value);
+        public static void SetNavMeshAgent(this IEntity obj, NavMeshAgent value) => obj.SetValue(NavMeshAgent, value);
     }
 }
