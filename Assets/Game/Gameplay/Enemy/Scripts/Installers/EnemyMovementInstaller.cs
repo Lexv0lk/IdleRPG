@@ -14,6 +14,9 @@ namespace Game.Gameplay.Enemy
             entity.AddDestination(new ReactiveVariable<Vector3>(entity.GetTransform().position));
             entity.AddDistanceToDestination(new ReactiveVariable<float>());
             entity.AddStoppingDistance(new ReactiveVariable<float>());
+
+            var canRotate = entity.GetCanRotate();
+            canRotate.Append(() => entity.GetTarget().Value != null);
             
             entity.AddBehaviour(new DestinationMovementBehaviour());
             entity.AddBehaviour(new DestinationDistanceCalculationBehaviour());

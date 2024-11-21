@@ -17,11 +17,14 @@ namespace Atomic.Entities
         public const int MoveDirection = 2; // ReactiveVariable<Vector3>
         public const int RotationSpeed = 5; // ReactiveVariable<float>
         public const int MinimalRotationDelta = 7; // float
-        public const int CanMove = 4; // ReactiveVariable<bool>
+        public const int CanMove = 4; // AndExpression
         public const int IsMoving = 8; // ReactiveVariable<bool>
         public const int Destination = 6; // ReactiveVariable<Vector3>
         public const int DistanceToDestination = 24; // ReactiveVariable<float>
         public const int StoppingDistance = 26; // ReactiveVariable<float>
+        public const int ForwardDirection = 28; // ReactiveVariable<Vector3>
+        public const int CanRotate = 29; // AndExpression
+        public const int CanRotateToMoveDirection = 30; // AndExpression
 
 
         ///Extensions
@@ -98,13 +101,13 @@ namespace Atomic.Entities
         public static void SetMinimalRotationDelta(this IEntity obj, float value) => obj.SetValue(MinimalRotationDelta, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ReactiveVariable<bool> GetCanMove(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(CanMove);
+        public static AndExpression GetCanMove(this IEntity obj) => obj.GetValue<AndExpression>(CanMove);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetCanMove(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(CanMove, out value);
+        public static bool TryGetCanMove(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanMove, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddCanMove(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(CanMove, value);
+        public static bool AddCanMove(this IEntity obj, AndExpression value) => obj.AddValue(CanMove, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasCanMove(this IEntity obj) => obj.HasValue(CanMove);
@@ -113,7 +116,7 @@ namespace Atomic.Entities
         public static bool DelCanMove(this IEntity obj) => obj.DelValue(CanMove);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetCanMove(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(CanMove, value);
+        public static void SetCanMove(this IEntity obj, AndExpression value) => obj.SetValue(CanMove, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReactiveVariable<bool> GetIsMoving(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsMoving);
@@ -186,5 +189,59 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetStoppingDistance(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(StoppingDistance, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<Vector3> GetForwardDirection(this IEntity obj) => obj.GetValue<ReactiveVariable<Vector3>>(ForwardDirection);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetForwardDirection(this IEntity obj, out ReactiveVariable<Vector3> value) => obj.TryGetValue(ForwardDirection, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddForwardDirection(this IEntity obj, ReactiveVariable<Vector3> value) => obj.AddValue(ForwardDirection, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasForwardDirection(this IEntity obj) => obj.HasValue(ForwardDirection);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelForwardDirection(this IEntity obj) => obj.DelValue(ForwardDirection);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetForwardDirection(this IEntity obj, ReactiveVariable<Vector3> value) => obj.SetValue(ForwardDirection, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AndExpression GetCanRotate(this IEntity obj) => obj.GetValue<AndExpression>(CanRotate);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanRotate(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanRotate, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanRotate(this IEntity obj, AndExpression value) => obj.AddValue(CanRotate, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanRotate(this IEntity obj) => obj.HasValue(CanRotate);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanRotate(this IEntity obj) => obj.DelValue(CanRotate);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanRotate(this IEntity obj, AndExpression value) => obj.SetValue(CanRotate, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AndExpression GetCanRotateToMoveDirection(this IEntity obj) => obj.GetValue<AndExpression>(CanRotateToMoveDirection);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanRotateToMoveDirection(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanRotateToMoveDirection, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanRotateToMoveDirection(this IEntity obj, AndExpression value) => obj.AddValue(CanRotateToMoveDirection, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanRotateToMoveDirection(this IEntity obj) => obj.HasValue(CanRotateToMoveDirection);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanRotateToMoveDirection(this IEntity obj) => obj.DelValue(CanRotateToMoveDirection);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanRotateToMoveDirection(this IEntity obj, AndExpression value) => obj.SetValue(CanRotateToMoveDirection, value);
     }
 }

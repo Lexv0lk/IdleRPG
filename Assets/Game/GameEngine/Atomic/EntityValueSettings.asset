@@ -36,7 +36,7 @@ MonoBehaviour:
       type: float
     - id: 4
       name: CanMove
-      type: ReactiveVariable<bool>
+      type: AndExpression
     - id: 8
       name: IsMoving
       type: ReactiveVariable<bool>
@@ -49,6 +49,15 @@ MonoBehaviour:
     - id: 26
       name: StoppingDistance
       type: ReactiveVariable<float>
+    - id: 28
+      name: ForwardDirection
+      type: ReactiveVariable<Vector3>
+    - id: 29
+      name: CanRotate
+      type: AndExpression
+    - id: 30
+      name: CanRotateToMoveDirection
+      type: AndExpression
   - name: Core
     indexes:
     - id: 3
@@ -95,6 +104,12 @@ MonoBehaviour:
     - id: 21
       name: AttackStopAction
       type: BaseEvent
+    - id: 27
+      name: MaxHealth
+      type: ReactiveVariable<int>
+    - id: 31
+      name: IsDead
+      type: ReactiveVariable<bool>
   - name: Patrol
     indexes:
     - id: 22

@@ -7,7 +7,7 @@ namespace Game.Gameplay.Character
     {
         private IValue<float> _attackRate;
         private IEvent _attackRequest;
-        private IPredicate _canAttack;
+        private IValue<bool> _canAttack;
 
         private float _timeForNextAttack;
         
@@ -26,7 +26,7 @@ namespace Game.Gameplay.Character
                 return;
             }
 
-            if (_canAttack.Invoke())
+            if (_canAttack.Value)
             {
                 _attackRequest.Invoke();
                 _timeForNextAttack = _attackRate.Value;

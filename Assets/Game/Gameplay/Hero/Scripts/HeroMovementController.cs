@@ -1,5 +1,6 @@
 ﻿using Atomic.Elements;
 using Atomic.Entities;
+using Game.GameEngine.LocationServices;
 using Game.Gameplay.GameStates;
 using Modules.Input;
 using UnityEngine;

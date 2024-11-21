@@ -30,6 +30,8 @@ namespace Game.Gameplay.Character
             entity.AddAttackRate(_attackRate);
             entity.AddAttackRange(_attackRange);
             entity.AddHealth(_health);
+            entity.AddMaxHealth(new ReactiveVariable<int>(_health.Value));
+            entity.AddIsDead(new ReactiveVariable<bool>(false));
             
             entity.AddDistanceToTarget(new ReactiveVariable<float>(float.MaxValue));
             
@@ -37,6 +39,8 @@ namespace Game.Gameplay.Character
             canAttack.Append(() => entity.GetIsMoving().Value == false);
             canAttack.Append(() => entity.GetTarget().Value != null);
             canAttack.Append(() => entity.GetDistanceToTarget().Value <= entity.GetAttackRange().Value);
+            canAttack.Append(() => entity.GetIsDead().Value == false);
+            canAttack.Append(() => entity.GetTarget().Value.GetIsDead().Value == false);
             entity.AddCanAttack(canAttack);
 
             entity.AddAttackRequest(new BaseEvent());
@@ -48,6 +52,8 @@ namespace Game.Gameplay.Character
             entity.AddBehaviour(new AttackRequestBehaviour());
             entity.AddBehaviour(new AttackBehaviour());
             entity.AddBehaviour(new AttackForceStopBehaviour());
+            entity.AddBehaviour(new LookAtTargetBehaviour());
+            entity.AddBehaviour(new DeathBehaviour());
         }
     }
 }

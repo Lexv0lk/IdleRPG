@@ -471,7 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: d3f0462b12dc6fa4ea2a51a2b54408e1, type: 2}
   _monoInstallers:
   - {fileID: 576275172}
   - {fileID: 576275176}
@@ -542,6 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633906355}
   - component: {fileID: 633906356}
+  - component: {fileID: 633906357}
   m_Layer: 0
   m_Name: '[SERVICES]'
   m_TagString: Untagged
@@ -577,6 +579,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hero: {fileID: 2002217122}
+--- !u!114 &633906357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633906354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6fe12a47844f4cbe9fc836d8cb9dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 963194227}
 --- !u!1 &642305209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1463,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654520074526915159, guid: d93f0ff775b02df44b52a392b0b9f485,
+        type: 3}
+      propertyPath: _combatInstaller._health.value
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654520074526915159, guid: d93f0ff775b02df44b52a392b0b9f485,
+        type: 3}
+      propertyPath: _combatInstaller._attackRange.value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654520074526915159, guid: d93f0ff775b02df44b52a392b0b9f485,
+        type: 3}
+      propertyPath: _combatInstaller._visionDistance.value
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654520074526915159, guid: d93f0ff775b02df44b52a392b0b9f485,
+        type: 3}
+      propertyPath: _movementInstaller._rotationSpeed.value
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

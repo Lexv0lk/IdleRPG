@@ -6,6 +6,7 @@ using UnityEngine;
 using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
+using UnityEngine.AI;
 
 namespace Atomic.Entities
 {
@@ -24,6 +25,8 @@ namespace Atomic.Entities
         public const int AttackRequest = 18; // BaseEvent
         public const int AttackAction = 19; // BaseEvent
         public const int AttackStopAction = 21; // BaseEvent
+        public const int MaxHealth = 27; // ReactiveVariable<int>
+        public const int IsDead = 31; // ReactiveVariable<bool>
 
 
         ///Extensions
@@ -242,5 +245,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetAttackStopAction(this IEntity obj, BaseEvent value) => obj.SetValue(AttackStopAction, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<int> GetMaxHealth(this IEntity obj) => obj.GetValue<ReactiveVariable<int>>(MaxHealth);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetMaxHealth(this IEntity obj, out ReactiveVariable<int> value) => obj.TryGetValue(MaxHealth, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddMaxHealth(this IEntity obj, ReactiveVariable<int> value) => obj.AddValue(MaxHealth, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasMaxHealth(this IEntity obj) => obj.HasValue(MaxHealth);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelMaxHealth(this IEntity obj) => obj.DelValue(MaxHealth);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetMaxHealth(this IEntity obj, ReactiveVariable<int> value) => obj.SetValue(MaxHealth, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetIsDead(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsDead);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsDead(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsDead, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsDead(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsDead, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsDead(this IEntity obj) => obj.HasValue(IsDead);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsDead(this IEntity obj) => obj.DelValue(IsDead);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsDead(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsDead, value);
     }
 }

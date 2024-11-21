@@ -1,7 +1,7 @@
 ﻿using Atomic.Entities;
 using UnityEngine;
 
-namespace Game.Gameplay.Hero
+namespace Game.GameEngine.LocationServices
 {
     public class HeroService : MonoBehaviour
     {

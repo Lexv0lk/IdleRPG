@@ -15,6 +15,7 @@ namespace Game.Gameplay.Character
         [SerializeField] private string _moveBoolean = "IsMoving";
         [SerializeField] private string _attackTrigger = "Attack";
         [SerializeField] private string _attackStopTrigger = "StopAttack";
+        [SerializeField] private string _dieBoolean = "Die";
 
         [Header("Animation Events")] 
         [SerializeField] private string _attackedEvent = "Attacked";
@@ -23,11 +24,14 @@ namespace Game.Gameplay.Character
         public void Install(IEntity entity)
         {
             BoolAnimationBehaviour movingAnimationBehavior = new BoolAnimationBehaviour(entity.GetIsMoving(), _animator, Animator.StringToHash(_moveBoolean));
+            BoolAnimationBehaviour deathAnimationBehaviour =
+                new BoolAnimationBehaviour(entity.GetIsDead(), _animator, Animator.StringToHash(_dieBoolean));
             AttackAnimationBehaviour attackAnimationBehaviour = new AttackAnimationBehaviour(_animator,
                 _animatorDispatcher, _attackTrigger, _attackStopTrigger, _attackedEvent);
             
             entity.AddBehaviour(movingAnimationBehavior);
             entity.AddBehaviour(attackAnimationBehaviour);
+            entity.AddBehaviour(deathAnimationBehaviour);
         }
     }
 }
