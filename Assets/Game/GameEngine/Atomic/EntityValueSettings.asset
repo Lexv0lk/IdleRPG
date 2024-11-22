@@ -110,6 +110,24 @@ MonoBehaviour:
     - id: 31
       name: IsDead
       type: ReactiveVariable<bool>
+    - id: 32
+      name: PossibleTargets
+      type: Collider[]
+    - id: 33
+      name: RegenerationValue
+      type: ReactiveVariable<int>
+    - id: 34
+      name: RegenerationCooldown
+      type: ReactiveVariable<float>
+    - id: 35
+      name: RegenerationIdleTime
+      type: ReactiveVariable<float>
+    - id: 36
+      name: TakeDamageRequest
+      type: BaseEvent<int>
+    - id: 37
+      name: TakeDamageEvent
+      type: BaseEvent<int>
   - name: Patrol
     indexes:
     - id: 22

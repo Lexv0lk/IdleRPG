@@ -1,7 +1,9 @@
 {
     "name": "Atomic.Entities",
     "rootNamespace": "Atomic.Entities",
-    "references": [],
+    "references": [
+        "GUID:0069adc36b214a78896495f4ffd0a95f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

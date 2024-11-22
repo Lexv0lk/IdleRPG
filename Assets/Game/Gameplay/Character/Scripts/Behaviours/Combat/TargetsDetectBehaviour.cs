@@ -1,23 +1,22 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
 namespace Game.Gameplay.Character
 {
-    public class TargetDetectBehaviour : IEntityInit, IEntityFixedUpdate
+    public class TargetsDetectBehaviour : IEntityInit, IEntityFixedUpdate
     {
         private readonly LayerMask _targetsLayerMask;
         
-        private IReactiveVariable<IEntity> _target;
         private IValue<float> _visionDistance;
         private IValue<float> _visionAngle;
         private Transform _root;
 
         private Collider[] _resultsColliders;
-        private Collider _previousCollider;
 
-        public TargetDetectBehaviour(LayerMask targetsLayerMask, int targetsBufferSize = 10)
+        public TargetsDetectBehaviour(LayerMask targetsLayerMask, int targetsBufferSize = 10)
         {
             _targetsLayerMask = targetsLayerMask;
             _resultsColliders = new Collider[targetsBufferSize];
@@ -25,7 +24,6 @@ namespace Game.Gameplay.Character
         
         public void Init(IEntity entity)
         {
-            _target = entity.GetTarget();
             _root = entity.GetTransform();
             _visionDistance = entity.GetVisionDistance();
             _visionAngle = entity.GetVisionAngle();
@@ -37,28 +35,16 @@ namespace Game.Gameplay.Character
 
             if (enemyCount == 0)
             {
-                _target.Value = null;
-                _previousCollider = null;
+                entity.SetPossibleTargets(Array.Empty<Collider>());
                 return;
             }
 
-            var closestTarget = _resultsColliders
+            var closestTargets = _resultsColliders
                 .Take(enemyCount)
                 .Where(x => Vector3.Angle(_root.forward, x.transform.position - _root.position) <= _visionAngle.Value)
-                .OrderBy(x => (x.transform.position - _root.position).sqrMagnitude)
-                .FirstOrDefault();
-
-            if (closestTarget == null)
-            {
-                _target.Value = null;
-                _previousCollider = null;
-                return;
-            }
-
-            if (_previousCollider != closestTarget)
-                _target.Value = closestTarget.GetComponent<SceneEntity>();
-
-            _previousCollider = closestTarget;
+                .OrderBy(x => (x.transform.position - _root.position).sqrMagnitude);
+            
+            entity.SetPossibleTargets(closestTargets.ToArray());
         }
     }
 }

@@ -478,6 +478,12 @@ MonoBehaviour:
     _enemyLayerMask:
       serializedVersion: 2
       m_Bits: 128
+    _regenerationValue:
+      value: 1
+    _regenerationCooldown:
+      value: 1
+    _regenerationIdleTime:
+      value: 5
     _health:
       value: 100
   _animationInstaller:
@@ -486,6 +492,7 @@ MonoBehaviour:
     _moveBoolean: IsMoving
     _attackTrigger: Attack
     _attackStopTrigger: StopAttack
+    _dieBoolean: Die
     _attackedEvent: Attacked
     _attackEndEvent: AttackEnd
   _visualInstaller:

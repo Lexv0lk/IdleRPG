@@ -18,6 +18,11 @@ namespace Game.Gameplay.Character
         [SerializeField] private ReactiveVariable<float> _attackRange;
         [SerializeField] private LayerMask _enemyLayerMask;
 
+        [Header("Health Regeneration")] 
+        [SerializeField] private ReactiveVariable<int> _regenerationValue;
+        [SerializeField] private ReactiveVariable<float> _regenerationCooldown;
+        [SerializeField] private ReactiveVariable<float> _regenerationIdleTime;
+
         [Header("Combat Stats")] 
         [SerializeField] private ReactiveVariable<int> _health;
         
@@ -32,6 +37,13 @@ namespace Game.Gameplay.Character
             entity.AddHealth(_health);
             entity.AddMaxHealth(new ReactiveVariable<int>(_health.Value));
             entity.AddIsDead(new ReactiveVariable<bool>(false));
+
+            entity.AddRegenerationValue(_regenerationValue);
+            entity.AddRegenerationCooldown(_regenerationCooldown);
+            entity.AddRegenerationIdleTime(_regenerationIdleTime);
+
+            entity.AddTakeDamageRequest(new BaseEvent<int>());
+            entity.AddTakeDamageEvent(new BaseEvent<int>());
             
             entity.AddDistanceToTarget(new ReactiveVariable<float>(float.MaxValue));
             
@@ -47,13 +59,16 @@ namespace Game.Gameplay.Character
             entity.AddAttackAction(new BaseEvent());
             entity.AddAttackStopAction(new BaseEvent());
 
-            entity.AddBehaviour(new TargetDetectBehaviour(_enemyLayerMask));
+            entity.AddBehaviour(new TargetsDetectBehaviour(_enemyLayerMask));
             entity.AddBehaviour(new TargetDistanceCalculationBehaviour());
             entity.AddBehaviour(new AttackRequestBehaviour());
             entity.AddBehaviour(new AttackBehaviour());
             entity.AddBehaviour(new AttackForceStopBehaviour());
             entity.AddBehaviour(new LookAtTargetBehaviour());
             entity.AddBehaviour(new DeathBehaviour());
+            entity.AddBehaviour(new TargetSelectBehaviour());
+            entity.AddBehaviour(new HealthRegenerationBehaviour());
+            entity.AddBehaviour(new TakeDamageBehaviour());
         }
     }
 }

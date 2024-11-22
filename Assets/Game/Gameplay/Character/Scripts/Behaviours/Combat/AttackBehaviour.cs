@@ -33,10 +33,7 @@ namespace Game.Gameplay.Character
         {
             if (_canAttack.Invoke())
             {
-                var targetHealth = _target.Value.GetHealth();
-
-                if (targetHealth.Value > 0)
-                    targetHealth.Value = Mathf.Max(0, targetHealth.Value - _damage.Value);
+                _target.Value.GetTakeDamageRequest().Invoke(_damage.Value);
             }
         }
     }

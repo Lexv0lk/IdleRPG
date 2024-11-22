@@ -1,3 +1,4 @@
+using Game.Gameplay.GameStates;
 using UnityEngine;
 
 namespace Atomic.Entities
@@ -6,14 +7,17 @@ namespace Atomic.Entities
     [DefaultExecutionOrder(-1000)]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(SceneEntityWorld))]
-    public sealed class SceneEntityWorldController : MonoBehaviour
+    public sealed class SceneEntityWorldController : MonoBehaviour,
+        IGameInitializeListener,
+        IGameStartListener,
+        IGameSimpleUpdateListener,
+        IGameFixedUpdateListener
     {
         private SceneEntityWorld world;
         private bool started;
 
         private void Awake()
         {
-            this.world = this.GetComponent<SceneEntityWorld>();
         }
 
         private void OnEnable()
@@ -26,19 +30,15 @@ namespace Atomic.Entities
 
         private void Start()
         {
-            this.world.InitEntities();
-            this.world.EnableEntities();
-            this.started = true;
+            
         }
 
         private void FixedUpdate()
         {
-            this.world.FixedUpdateEntities(Time.fixedDeltaTime);
         }
 
         private void Update()
         {
-            this.world.UpdateEntities(Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -60,6 +60,28 @@ namespace Atomic.Entities
             {
                 this.world.DisposeEntities();
             }
+        }
+
+        public void OnInitialize()
+        {
+            this.world = this.GetComponent<SceneEntityWorld>();
+        }
+
+        public void OnStart()
+        {
+            this.world.InitEntities();
+            this.world.EnableEntities();
+            this.started = true;
+        }
+
+        public void OnFixedUpdate(float deltaTime)
+        {
+            this.world.FixedUpdateEntities(deltaTime);
+        }
+
+        public void OnUpdate(float deltaTime)
+        {
+            this.world.UpdateEntities(deltaTime);
         }
     }
 }

@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using Game.Configs;
 using Game.GameEngine.LocationServices;
 using UniRx;
+using UnityEngine;
 
 namespace Game.Gameplay.Character
 {
@@ -40,7 +41,7 @@ namespace Game.Gameplay.Character
         {
             Health.Value = $"{_currentHealth.Value}/{_maxHealth.Value}";
             HealthPart.Value = (float)_currentHealth.Value / _maxHealth.Value;
-            CanShowHealth.Value = true;
+            CanShowHealth.Value = HealthPart.Value > 0;
 
             if (_isDelayedDeactivating)
             {
@@ -48,7 +49,8 @@ namespace Game.Gameplay.Character
                 _cts.Dispose();
             }
             
-            DisableHealthViewDelayedAsync();
+            if (Mathf.Approximately(HealthPart.Value, 1))
+                DisableHealthViewDelayedAsync();
         }
         
         private async UniTask DisableHealthViewDelayedAsync()
