@@ -1,7 +1,7 @@
 using Atomic.Elements;
 using Atomic.Entities;
 
-namespace Game.Gameplay.Character
+namespace Game.GameEngine.Atomic.Behaviours
 {
     public class AttackRequestBehaviour : IEntityInit, IEntityUpdate
     {

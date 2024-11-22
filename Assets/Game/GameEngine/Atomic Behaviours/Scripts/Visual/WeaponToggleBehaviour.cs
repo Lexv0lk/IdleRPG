@@ -1,19 +1,25 @@
 ﻿using Atomic.Elements;
 using Atomic.Entities;
+using UnityEngine;
 
-namespace Game.Gameplay.Character
+namespace Game.GameEngine.Atomic.Behaviours
 {
-    public class PatrolConditionUpdateBehaviour : IEntityInit, IEntityEnable, IEntityDisable
+    public class WeaponToggleBehaviour : IEntityInit, IEntityEnable, IEntityDisable
     {
+        private readonly GameObject _weaponObject;
+
         private IReactiveValue<IEntity> _target;
-        private IReactiveVariable<bool> _canPatrol;
-        
+
+        public WeaponToggleBehaviour(GameObject weaponObject)
+        {
+            _weaponObject = weaponObject;
+        }
+
         public void Init(IEntity entity)
         {
             _target = entity.GetTarget();
-            _canPatrol = entity.GetCanPatrol();
         }
-
+        
         public void Enable(IEntity entity)
         {
             _target.Subscribe(OnTargetChanged);
@@ -27,7 +33,7 @@ namespace Game.Gameplay.Character
 
         private void OnTargetChanged(IEntity newTarget)
         {
-            _canPatrol.Value = newTarget == null;
+            _weaponObject.SetActive(newTarget != null);
         }
     }
 }

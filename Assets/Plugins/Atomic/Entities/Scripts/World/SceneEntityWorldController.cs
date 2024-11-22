@@ -16,29 +16,12 @@ namespace Atomic.Entities
         private SceneEntityWorld world;
         private bool started;
 
-        private void Awake()
-        {
-        }
-
         private void OnEnable()
         {
             if (this.started)
             {
                 this.world.EnableEntities();
             }
-        }
-
-        private void Start()
-        {
-            
-        }
-
-        private void FixedUpdate()
-        {
-        }
-
-        private void Update()
-        {
         }
 
         private void LateUpdate()

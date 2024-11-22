@@ -4,7 +4,7 @@ using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
-namespace Game.Gameplay.Character
+namespace Game.GameEngine.Atomic.Behaviours
 {
     public class TargetsDetectBehaviour : IEntityInit, IEntityFixedUpdate
     {

@@ -4,7 +4,7 @@ using Atomic.Entities;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Game.Gameplay.Character
+namespace Game.GameEngine.Atomic.Behaviours
 {
     public class PatrolBehaviour : IEntityInit, IEntityEnable, IEntityDisable
     {

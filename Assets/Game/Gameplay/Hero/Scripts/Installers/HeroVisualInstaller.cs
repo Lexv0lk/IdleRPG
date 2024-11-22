@@ -1,6 +1,6 @@
 ﻿using System;
 using Atomic.Entities;
-using Game.Gameplay.Character;
+using Game.GameEngine.Atomic.Behaviours;
 using UnityEngine;
 
 namespace Game.Gameplay.Hero

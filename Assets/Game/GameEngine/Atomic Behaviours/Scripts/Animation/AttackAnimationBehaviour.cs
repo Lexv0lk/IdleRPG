@@ -3,7 +3,7 @@ using Atomic.Entities;
 using Game.GameEngine.Animations;
 using UnityEngine;
 
-namespace Game.Gameplay.Character
+namespace Game.GameEngine.Atomic.Behaviours
 {
     public class AttackAnimationBehaviour : IEntityInit, IEntityEnable, IEntityDisable
     {

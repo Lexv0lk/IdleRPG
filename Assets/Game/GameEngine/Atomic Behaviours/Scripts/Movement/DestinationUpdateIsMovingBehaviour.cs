@@ -3,7 +3,7 @@ using Atomic.Entities;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Game.Gameplay.Character
+namespace Game.GameEngine.Atomic.Behaviours
 {
     public class DestinationUpdateIsMovingBehaviour : IEntityInit, IEntityUpdate
     {

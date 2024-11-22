@@ -1,6 +1,7 @@
 using System;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.GameEngine.Atomic.Behaviours;
 using UnityEngine;
 
 namespace Game.Gameplay.Character
