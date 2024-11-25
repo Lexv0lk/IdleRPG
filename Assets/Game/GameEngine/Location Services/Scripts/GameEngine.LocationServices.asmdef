@@ -1,0 +1,17 @@
+{
+    "name": "GameEngine.LocationServices",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f06f28e7a0d24ff18d1b4e4acec49d4d",
+        "GUID:d43304abcc04c03419e2ca5b2a72d297"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Meta.Rewards",
+    "rootNamespace": "",
+    "references": [
+        "GUID:934335208d20b044f8c560ede4aa093d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -128,6 +128,9 @@ MonoBehaviour:
     - id: 37
       name: TakeDamageEvent
       type: BaseEvent<int>
+    - id: 38
+      name: DieEvent
+      type: BaseEvent<IEntity>
   - name: Patrol
     indexes:
     - id: 22

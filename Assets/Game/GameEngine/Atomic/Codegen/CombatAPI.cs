@@ -33,6 +33,7 @@ namespace Atomic.Entities
         public const int RegenerationIdleTime = 35; // ReactiveVariable<float>
         public const int TakeDamageRequest = 36; // BaseEvent<int>
         public const int TakeDamageEvent = 37; // BaseEvent<int>
+        public const int DieEvent = 38; // BaseEvent<IEntity>
 
 
         ///Extensions
@@ -395,5 +396,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetTakeDamageEvent(this IEntity obj, BaseEvent<int> value) => obj.SetValue(TakeDamageEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static BaseEvent<IEntity> GetDieEvent(this IEntity obj) => obj.GetValue<BaseEvent<IEntity>>(DieEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDieEvent(this IEntity obj, out BaseEvent<IEntity> value) => obj.TryGetValue(DieEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDieEvent(this IEntity obj, BaseEvent<IEntity> value) => obj.AddValue(DieEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDieEvent(this IEntity obj) => obj.HasValue(DieEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDieEvent(this IEntity obj) => obj.DelValue(DieEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDieEvent(this IEntity obj, BaseEvent<IEntity> value) => obj.SetValue(DieEvent, value);
     }
 }

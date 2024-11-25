@@ -1,0 +1,18 @@
+{
+    "name": "Meta.Quests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:934335208d20b044f8c560ede4aa093d",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:fb316457c08dd5a46a8e57a47d1d68b1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

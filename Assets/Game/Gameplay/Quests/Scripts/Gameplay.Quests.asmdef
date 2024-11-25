@@ -1,0 +1,20 @@
+{
+    "name": "Gameplay.Quests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8e2a3fe5c9f57c443a3bd00d17f5a07c",
+        "GUID:15c22db66c404424cb68aaa076b0fd5f",
+        "GUID:9b64eec51685d34489666bd916a92069",
+        "GUID:f06f28e7a0d24ff18d1b4e4acec49d4d",
+        "GUID:fb316457c08dd5a46a8e57a47d1d68b1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
