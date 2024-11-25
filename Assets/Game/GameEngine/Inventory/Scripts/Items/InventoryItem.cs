@@ -20,16 +20,18 @@ namespace Game.GameEngine.Inventory
         
         public InventoryItem() {}
 
-        public InventoryItem(string id, InventoryItemFlags flags, IInventoryItemComponent[] components)
+        public InventoryItem(string id, InventoryItemFlags flags, 
+            InventoryItemMetadata metadata, IInventoryItemComponent[] components)
         {
             _id = id;
             _flags = flags;
+            _metadata = metadata;
             _components = components;
         }
 
         public InventoryItem Clone()
         {
-            return new InventoryItem(_id, _flags, _components.ToArray());
+            return new InventoryItem(_id, _flags, _metadata, _components.ToArray());
         }
     }
 }
