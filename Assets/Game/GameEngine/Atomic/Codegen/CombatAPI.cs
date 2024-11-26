@@ -34,6 +34,7 @@ namespace Atomic.Entities
         public const int TakeDamageRequest = 36; // BaseEvent<int>
         public const int TakeDamageEvent = 37; // BaseEvent<int>
         public const int DieEvent = 38; // BaseEvent<IEntity>
+        public const int CanRegenerate = 40; // AndExpression
 
 
         ///Extensions
@@ -414,5 +415,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetDieEvent(this IEntity obj, BaseEvent<IEntity> value) => obj.SetValue(DieEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AndExpression GetCanRegenerate(this IEntity obj) => obj.GetValue<AndExpression>(CanRegenerate);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanRegenerate(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanRegenerate, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanRegenerate(this IEntity obj, AndExpression value) => obj.AddValue(CanRegenerate, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanRegenerate(this IEntity obj) => obj.HasValue(CanRegenerate);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanRegenerate(this IEntity obj) => obj.DelValue(CanRegenerate);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanRegenerate(this IEntity obj, AndExpression value) => obj.SetValue(CanRegenerate, value);
     }
 }

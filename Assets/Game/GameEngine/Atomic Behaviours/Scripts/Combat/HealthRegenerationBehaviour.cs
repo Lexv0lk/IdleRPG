@@ -12,6 +12,7 @@ namespace Game.GameEngine.Atomic.Behaviours
         private IValue<int> _maxHealth;
         private IEvent _attackEvent;
         private IEvent<int> _takeDamageEvent;
+        private IValue<bool> _canRegenerate;
 
         private float _timeFromLastCombatAction;
         private float _cooldownLeft;
@@ -25,6 +26,7 @@ namespace Game.GameEngine.Atomic.Behaviours
             _maxHealth = entity.GetMaxHealth();
             _attackEvent = entity.GetAttackAction();
             _takeDamageEvent = entity.GetTakeDamageEvent();
+            _canRegenerate = entity.GetCanRegenerate();
         }
         
         public void Enable(IEntity entity)
@@ -56,6 +58,9 @@ namespace Game.GameEngine.Atomic.Behaviours
                 _timeFromLastCombatAction += deltaTime;
                 return;
             }
+            
+            if (_canRegenerate.Value == false)
+                return;
 
             if (_cooldownLeft > 0)
             {

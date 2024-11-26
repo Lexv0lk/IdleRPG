@@ -52,15 +52,17 @@ namespace Game.GameEngine.Pools
             if (_availablePrefabs.Count > 0)
             {
                 entity = _availablePrefabs.First();
-                entity.gameObject.SetActive(true);
+                //entity.gameObject.SetActive(true);
 
                 _availablePrefabs.Remove(entity);
             }
             else
             {
                 entity = _container.InstantiatePrefabForComponent<SceneEntity>(_prefab, transform);
+                entity.gameObject.SetActive(false);
             }
 
+            entity.Install();
             return entity;
         }
 
@@ -70,6 +72,7 @@ namespace Game.GameEngine.Pools
             {
                 entity.transform.SetParent(transform, false);
                 entity.gameObject.SetActive(false);
+                entity.Reset();
             }
         }
     }

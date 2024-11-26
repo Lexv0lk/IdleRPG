@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Atomic.Entities;
 using Game.Gameplay.Combat;
 using Game.Meta.Quests;
@@ -24,8 +25,8 @@ namespace Game.Gameplay.Quests
             _killObserver = killObserver;
         }
 
-        public override float NormalizedProgress { get; }
-        public override string TextProgress { get; }
+        public override float NormalizedProgress => (float)_currentKills / _config.TargetKills;
+        public override string TextProgress => $"";
         
         public override event Action<Quest> ProgressChanged;
         
@@ -37,12 +38,17 @@ namespace Game.Gameplay.Quests
 
         private void OnEnemyKilled(IEntity enemy)
         {
-            throw new NotImplementedException();
+            if (_config.PossibleEnemyIds.Contains(enemy.GetEnemyId()))
+            {
+                _currentKills++;
+                TryComplete();
+            }
         }
 
         protected override void OnStop()
         {
-            
+            _killObserver.Killed -= OnEnemyKilled;
+            _currentKills = 0;
         }
     }
 }

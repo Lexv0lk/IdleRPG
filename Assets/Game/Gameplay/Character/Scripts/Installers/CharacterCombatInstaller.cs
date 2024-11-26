@@ -45,6 +45,7 @@ namespace Game.Gameplay.Character
 
             entity.AddTakeDamageRequest(new BaseEvent<int>());
             entity.AddTakeDamageEvent(new BaseEvent<int>());
+            entity.AddDieEvent(new BaseEvent<IEntity>());
             
             entity.AddDistanceToTarget(new ReactiveVariable<float>(float.MaxValue));
             
@@ -55,6 +56,10 @@ namespace Game.Gameplay.Character
             canAttack.Append(() => entity.GetIsDead().Value == false);
             canAttack.Append(() => entity.GetTarget().Value.GetIsDead().Value == false);
             entity.AddCanAttack(canAttack);
+
+            var canRegenerate = new AndExpression();
+            canRegenerate.Append(() => entity.GetIsDead().Value == false);
+            entity.AddCanRegenerate(canRegenerate);
 
             entity.AddAttackRequest(new BaseEvent());
             entity.AddAttackAction(new BaseEvent());

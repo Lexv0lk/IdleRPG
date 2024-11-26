@@ -10,8 +10,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1688309706688369961, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688309706688369961, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688309706688369961, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688309706688369961, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.15
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790052780246939319, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: autoRefresh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790052780246939319, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: installOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4790052780246939319, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
@@ -45,6 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 6426334086335328302}
     - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
+      propertyPath: _combatInstaller._health.value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
       propertyPath: _animationInstaller._weaponObject
       value: 
       objectReference: {fileID: 8021464082187936469}
@@ -76,7 +106,7 @@ PrefabInstance:
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.68
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
@@ -86,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.84
+      value: 15.74
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
@@ -167,14 +197,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909a6694397e48778a0c7e9a1a3fa452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coreInstaller:
+    _enemyId: Test
   _patrolInstaller:
     _waypoints:
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    _patrolRangeAccuracy: 0.15
+    _patrolRangeAccuracy: 2.7
     _minimalIdleTime: 0
-    _maximalIdleTime: 2
+    _maximalIdleTime: 5
 --- !u!1001 &6375635073437929692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +255,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a38b7616f816b814fa3a2f7a78a44dde, type: 2}
+    - target: {fileID: 95739547400954098, guid: a744caf4676601646ab2385371d1d140,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 137619849920318678, guid: a744caf4676601646ab2385371d1d140,
         type: 3}
       propertyPath: m_CastShadows

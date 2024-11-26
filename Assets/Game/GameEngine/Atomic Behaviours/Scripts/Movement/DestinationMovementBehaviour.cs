@@ -8,14 +8,14 @@ namespace Game.GameEngine.Atomic.Behaviours
     public class DestinationMovementBehaviour : IEntityInit, IEntityEnable, IEntityDisable
     {
         private IReactiveValue<Vector3> _destination;
-        private IValue<float> _stoppingDistance;
         private NavMeshAgent _navMeshAgent;
+        private IValue<bool> _canMove;
         
         public void Init(IEntity entity)
         {
             _destination = entity.GetDestination();
             _navMeshAgent = entity.GetNavMeshAgent();
-            _stoppingDistance = entity.GetStoppingDistance();
+            _canMove = entity.GetCanMove();
         }
 
         public void Enable(IEntity entity)
@@ -31,8 +31,8 @@ namespace Game.GameEngine.Atomic.Behaviours
 
         private void SetDestination(Vector3 destination)
         {
-            _navMeshAgent.stoppingDistance = _stoppingDistance.Value;
-            _navMeshAgent.SetDestination(destination);
+            if (_canMove.Value)
+                _navMeshAgent.SetDestination(destination);
         }
     }
 }

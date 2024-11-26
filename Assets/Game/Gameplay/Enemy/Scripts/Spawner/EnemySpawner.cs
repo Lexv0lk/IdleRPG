@@ -4,12 +4,13 @@ using Atomic.Entities;
 using Game.GameEngine.LocationServices;
 using Game.GameEngine.Pools;
 using Game.Gameplay.GameStates;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Gameplay.Enemy
 {
-    public class EnemySpawner : MonoBehaviour, IGameSimpleUpdateListener, IGameStartListener
+    public class EnemySpawner : MonoBehaviour, IGameSimpleUpdateListener, IGameStartListener, IGameFinishListener
     {
         private readonly HashSet<SceneEntity> _currentEntities = new();
         
@@ -24,17 +25,22 @@ namespace Game.Gameplay.Enemy
 
         private float _timeForNextEnemy;
         private HeroService _heroService;
+        private IEntityWorld _entityWorld;
 
         public IReadOnlyCollection<SceneEntity> SpawnedEnemies => _currentEntities;
 
         public event Action<IEntity> Spawned; 
 
         [Inject]
-        private void Construct(HeroService heroService)
+        private void Construct(HeroService heroService, IEntityWorld entityWorld)
         {
             _heroService = heroService;
+            _entityWorld = entityWorld;
+            
+            _initializer.Construct(_entityWorld);
         }
         
+        [Button]
         public void OnStart()
         {
             for (int i = 0; i < _enemiesCount; i++)
@@ -64,7 +70,20 @@ namespace Game.Gameplay.Enemy
             _initializer.Initialize(entity, _areaPointDecider.AllPoints);
 
             _currentEntities.Add(entity);
+            entity.GetDieEvent().OnEvent += OnKilled;
             Spawned?.Invoke(entity);
+        }
+
+        private void OnKilled(IEntity enemy)
+        {
+            enemy.GetDieEvent().OnEvent -= OnKilled;
+            _currentEntities.Remove(enemy.GetTransform().gameObject.GetComponent<SceneEntity>());
+        }
+
+        public void OnFinish()
+        {
+            foreach (var entity in _currentEntities)
+                entity.GetDieEvent().OnEvent -= OnKilled;
         }
     }
 }

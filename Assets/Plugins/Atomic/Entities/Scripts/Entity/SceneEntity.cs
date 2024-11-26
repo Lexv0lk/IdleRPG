@@ -164,6 +164,12 @@ namespace Atomic.Entities
             }
         }
 
+        public void Reset()
+        {
+            entity.Clear();
+            _installed = false;
+        }
+
         private void InstallInternal()
         {
             this.entity.Name = this.name;

@@ -5,6 +5,7 @@ using Game.Gameplay.GameStates;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using Zenject;
 
 namespace Game.GameEngine.Pools
 {
@@ -13,6 +14,14 @@ namespace Game.GameEngine.Pools
         private readonly Dictionary<SceneEntity, EntityPool> _pools = new();
         
         [OdinSerialize] private Dictionary<SceneEntity, int> _prefabs = new();
+
+        private DiContainer _diContainer;
+        
+        [Inject]
+        private void Construct(DiContainer diContainer)
+        {
+            _diContainer = diContainer;
+        }
         
         public void OnInitialize()
         {
@@ -22,7 +31,7 @@ namespace Game.GameEngine.Pools
                 poolGameObject.transform.parent = transform;
                 poolGameObject.name = $"{prefab.name} Pool";
                 
-                EntityPool pool = poolGameObject.AddComponent<EntityPool>();
+                EntityPool pool = _diContainer.InstantiateComponent<EntityPool>(poolGameObject);
                 pool.Initialize(prefab, count);
                 _pools[prefab] = pool;
             }

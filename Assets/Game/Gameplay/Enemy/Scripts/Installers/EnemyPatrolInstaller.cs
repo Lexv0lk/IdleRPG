@@ -20,9 +20,12 @@ namespace Game.Gameplay.Enemy
         {
             entity.AddWaypoints(_waypoints);
             entity.AddCurrentWaypointIndex(new ReactiveInt(0));
-            entity.AddCanPatrol(new ReactiveBool(true));
 
-            entity.AddBehaviour(new PatrolConditionUpdateBehaviour());
+            var canPatrol = new AndExpression();
+            canPatrol.Append(() => entity.GetTarget().Value == null);
+            canPatrol.Append(() => entity.GetIsDead().Value == false);
+            entity.AddCanPatrol(canPatrol);
+
             entity.AddBehaviour(new PatrolBehaviour(_patrolRangeAccuracy, _minimalIdleTime, _maximalIdleTime));
         }
     }

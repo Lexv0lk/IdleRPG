@@ -28,7 +28,6 @@ namespace Game.Gameplay.Character
             entity.AddCanMove(canMove);
             
             entity.AddIsMoving(new ReactiveVariable<bool>(false));
-
             entity.AddBehaviour(new RotationBehaviour(_minimalRotationDelta));
         }
     }

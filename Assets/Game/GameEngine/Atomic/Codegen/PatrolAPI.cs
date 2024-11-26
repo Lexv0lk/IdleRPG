@@ -15,7 +15,7 @@ namespace Atomic.Entities
         ///Keys
         public const int Waypoints = 22; // Transform[]
         public const int CurrentWaypointIndex = 23; // ReactiveInt
-        public const int CanPatrol = 25; // ReactiveBool
+        public const int CanPatrol = 25; // AndExpression
 
 
         ///Extensions
@@ -56,13 +56,13 @@ namespace Atomic.Entities
         public static void SetCurrentWaypointIndex(this IEntity obj, ReactiveInt value) => obj.SetValue(CurrentWaypointIndex, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ReactiveBool GetCanPatrol(this IEntity obj) => obj.GetValue<ReactiveBool>(CanPatrol);
+        public static AndExpression GetCanPatrol(this IEntity obj) => obj.GetValue<AndExpression>(CanPatrol);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetCanPatrol(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(CanPatrol, out value);
+        public static bool TryGetCanPatrol(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanPatrol, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddCanPatrol(this IEntity obj, ReactiveBool value) => obj.AddValue(CanPatrol, value);
+        public static bool AddCanPatrol(this IEntity obj, AndExpression value) => obj.AddValue(CanPatrol, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasCanPatrol(this IEntity obj) => obj.HasValue(CanPatrol);
@@ -71,6 +71,6 @@ namespace Atomic.Entities
         public static bool DelCanPatrol(this IEntity obj) => obj.DelValue(CanPatrol);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetCanPatrol(this IEntity obj, ReactiveBool value) => obj.SetValue(CanPatrol, value);
+        public static void SetCanPatrol(this IEntity obj, AndExpression value) => obj.SetValue(CanPatrol, value);
     }
 }

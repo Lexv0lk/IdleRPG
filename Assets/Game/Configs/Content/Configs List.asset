@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: ff96b77db1514f44eaa29c2f461a32b9, type: 2}
+    - {fileID: 11400000, guid: e3b0fecf191a6e64181cabbfc4acb1dc, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,10 +28,13 @@ MonoBehaviour:
       Data: 0|Game.Configs.IConfig[], Configs
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
     - Name: 
       Entry: 13
       Data: 

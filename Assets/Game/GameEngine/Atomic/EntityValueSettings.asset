@@ -131,6 +131,9 @@ MonoBehaviour:
     - id: 38
       name: DieEvent
       type: BaseEvent<IEntity>
+    - id: 40
+      name: CanRegenerate
+      type: AndExpression
   - name: Patrol
     indexes:
     - id: 22
@@ -141,4 +144,9 @@ MonoBehaviour:
       type: ReactiveInt
     - id: 25
       name: CanPatrol
-      type: ReactiveBool
+      type: AndExpression
+  - name: Enemy
+    indexes:
+    - id: 39
+      name: EnemyId
+      type: string
