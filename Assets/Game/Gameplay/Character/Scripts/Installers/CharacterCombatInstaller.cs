@@ -15,6 +15,7 @@ namespace Game.Gameplay.Character
         
         [Header("Attack Settings")]
         [SerializeField] private ReactiveVariable<int> _damage;
+        [SerializeField] private ReactiveVariable<int> _armor;
         [SerializeField] private ReactiveVariable<float> _attackRate;
         [SerializeField] private ReactiveVariable<float> _attackRange;
         [SerializeField] private LayerMask _enemyLayerMask;
@@ -33,6 +34,7 @@ namespace Game.Gameplay.Character
             entity.AddVisionAngle(_visionAngle);
             entity.AddVisionDistance(_visionDistance);
             entity.AddDamage(_damage);
+            entity.AddArmor(_armor);
             entity.AddAttackRate(_attackRate);
             entity.AddAttackRange(_attackRange);
             entity.AddHealth(_health);

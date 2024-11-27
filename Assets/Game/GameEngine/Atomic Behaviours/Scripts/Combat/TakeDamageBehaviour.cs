@@ -9,6 +9,7 @@ namespace Game.GameEngine.Atomic.Behaviours
         private IEvent<int> _takeDamageRequest;
         private IEvent<int> _takeDamageEvent;
         private IVariable<int> _currentHealth;
+        private IValue<int> _armor;
         
         public void Init(IEntity entity)
         {
@@ -29,6 +30,8 @@ namespace Game.GameEngine.Atomic.Behaviours
 
         private void OnTakeDamageRequested(int damageValue)
         {
+            damageValue = Mathf.Max(0, damageValue - _armor.Value);
+            
             int lastHealth = _currentHealth.Value;
             _currentHealth.Value = Mathf.Max(0, _currentHealth.Value - damageValue);
             int realDamage = lastHealth - _currentHealth.Value;

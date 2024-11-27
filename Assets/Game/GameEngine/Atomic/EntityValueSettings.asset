@@ -134,6 +134,9 @@ MonoBehaviour:
     - id: 40
       name: CanRegenerate
       type: AndExpression
+    - id: 41
+      name: Armor
+      type: ReactiveVariable<int>
   - name: Patrol
     indexes:
     - id: 22

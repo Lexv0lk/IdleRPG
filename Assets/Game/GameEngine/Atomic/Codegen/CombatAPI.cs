@@ -35,6 +35,7 @@ namespace Atomic.Entities
         public const int TakeDamageEvent = 37; // BaseEvent<int>
         public const int DieEvent = 38; // BaseEvent<IEntity>
         public const int CanRegenerate = 40; // AndExpression
+        public const int Armor = 41; // ReactiveVariable<int>
 
 
         ///Extensions
@@ -433,5 +434,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetCanRegenerate(this IEntity obj, AndExpression value) => obj.SetValue(CanRegenerate, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<int> GetArmor(this IEntity obj) => obj.GetValue<ReactiveVariable<int>>(Armor);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetArmor(this IEntity obj, out ReactiveVariable<int> value) => obj.TryGetValue(Armor, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddArmor(this IEntity obj, ReactiveVariable<int> value) => obj.AddValue(Armor, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasArmor(this IEntity obj) => obj.HasValue(Armor);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelArmor(this IEntity obj) => obj.DelValue(Armor);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetArmor(this IEntity obj, ReactiveVariable<int> value) => obj.SetValue(Armor, value);
     }
 }

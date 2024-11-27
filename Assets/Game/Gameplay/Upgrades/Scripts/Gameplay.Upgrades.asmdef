@@ -1,0 +1,20 @@
+{
+    "name": "Gameplay.Upgrades",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b7de02f30a81aa14897f8ac03de57dc7",
+        "GUID:3a21ed0b50c22a14e9e562aa40bc3f58",
+        "GUID:a953053e80bb4f599f6a51d42532f103",
+        "GUID:9b64eec51685d34489666bd916a92069",
+        "GUID:f06f28e7a0d24ff18d1b4e4acec49d4d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

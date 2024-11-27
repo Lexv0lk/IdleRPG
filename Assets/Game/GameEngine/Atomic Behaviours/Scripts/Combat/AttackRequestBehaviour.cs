@@ -29,7 +29,7 @@ namespace Game.GameEngine.Atomic.Behaviours
             if (_canAttack.Value)
             {
                 _attackRequest.Invoke();
-                _timeForNextAttack = _attackRate.Value;
+                _timeForNextAttack = 1 / _attackRate.Value;
             }
         }
     }
