@@ -60,6 +60,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+    - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
       propertyPath: _coreInstaller._navMeshAgent
       value: 
       objectReference: {fileID: 3543420548014089308}
@@ -197,15 +203,113 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909a6694397e48778a0c7e9a1a3fa452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coreInstaller:
-    _enemyId: Test
-  _patrolInstaller:
-    _waypoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    _patrolRangeAccuracy: 2.7
-    _minimalIdleTime: 0
-    _maximalIdleTime: 5
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _coreInstaller
+      Entry: 7
+      Data: 0|Game.Gameplay.Enemy.EnemyCoreInstaller, Gameplay.Enemy
+    - Name: _enemyId
+      Entry: 1
+      Data: Test
+    - Name: _loot
+      Entry: 7
+      Data: 1|Game.Meta.Rewards.IReward[], Meta.Rewards
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Game.Meta.Rewards.ResourceReward, Meta.Rewards
+    - Name: _resources
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[Game.GameEngine.Resource.ResourceType,
+        GameEngine.Resources],[System.Int32, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.EnumEqualityComparer`1[[Game.GameEngine.Resource.ResourceType,
+        GameEngine.Resources]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _movementInstaller
+      Entry: 7
+      Data: 5|Game.Gameplay.Enemy.EnemyMovementInstaller, Gameplay.Enemy
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _patrolInstaller
+      Entry: 7
+      Data: 6|Game.Gameplay.Enemy.EnemyPatrolInstaller, Gameplay.Enemy
+    - Name: _waypoints
+      Entry: 7
+      Data: 7|UnityEngine.Transform[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _patrolRangeAccuracy
+      Entry: 4
+      Data: 2.7
+    - Name: _minimalIdleTime
+      Entry: 4
+      Data: 0
+    - Name: _maximalIdleTime
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1001 &6375635073437929692
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,13 +1,13 @@
 ﻿using Atomic.Entities;
-using UnityEngine;
+using Sirenix.Serialization;
 
 namespace Game.Gameplay.Enemy
 {
     public class EnemyInstallerBase : SceneEntityInstallerBase
     {
-        [SerializeField] private EnemyCoreInstaller _coreInstaller;
-        [SerializeField] private EnemyMovementInstaller _movementInstaller;
-        [SerializeField] private EnemyPatrolInstaller _patrolInstaller;
+        [OdinSerialize] private EnemyCoreInstaller _coreInstaller;
+        [OdinSerialize] private EnemyMovementInstaller _movementInstaller;
+        [OdinSerialize] private EnemyPatrolInstaller _patrolInstaller;
         
         public override void Install(IEntity entity)
         {

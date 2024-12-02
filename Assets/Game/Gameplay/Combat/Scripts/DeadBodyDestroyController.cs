@@ -1,7 +1,8 @@
 ﻿using Atomic.Entities;
 using Cysharp.Threading.Tasks;
-using Game.GameEngine.LocationServices;
+using Game.Configs;
 using Game.GameEngine.Pools;
+using Game.Gameplay.Enemy;
 using Game.Gameplay.GameStates;
 
 namespace Game.Gameplay.Combat
@@ -36,9 +37,6 @@ namespace Game.Gameplay.Combat
         {
             await UniTask.Delay((int)(_config.StartDelay * 1000));
             _entityWorld.DelEntity(enemy);
-
-            // enemy.GetHealth().Value = enemy.GetMaxHealth().Value;
-            // enemy.GetIsDead().Value = false;
             
             var enemyObject = enemy.GetTransform().gameObject;
             enemy.Dispose();

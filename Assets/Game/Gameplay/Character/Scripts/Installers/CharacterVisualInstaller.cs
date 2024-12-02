@@ -1,6 +1,6 @@
 ﻿using System;
 using Atomic.Entities;
-using Game.GameEngine.LocationServices;
+using Game.Configs;
 using UnityEngine;
 
 namespace Game.Gameplay.Character

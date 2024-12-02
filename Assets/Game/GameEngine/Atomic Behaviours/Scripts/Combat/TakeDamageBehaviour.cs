@@ -16,6 +16,7 @@ namespace Game.GameEngine.Atomic.Behaviours
             _takeDamageRequest = entity.GetTakeDamageRequest();
             _currentHealth = entity.GetHealth();
             _takeDamageEvent = entity.GetTakeDamageEvent();
+            _armor = entity.GetArmor();
         }
 
         public void Enable(IEntity entity)

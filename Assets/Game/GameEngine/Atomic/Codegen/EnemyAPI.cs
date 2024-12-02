@@ -7,6 +7,7 @@ using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
 using UnityEngine.AI;
+using Game.Meta.Rewards;
 
 namespace Atomic.Entities
 {
@@ -14,6 +15,7 @@ namespace Atomic.Entities
     {
         ///Keys
         public const int EnemyId = 39; // string
+        public const int Loot = 42; // IReward[]
 
 
         ///Extensions
@@ -34,5 +36,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetEnemyId(this IEntity obj, string value) => obj.SetValue(EnemyId, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IReward[] GetLoot(this IEntity obj) => obj.GetValue<IReward[]>(Loot);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetLoot(this IEntity obj, out IReward[] value) => obj.TryGetValue(Loot, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddLoot(this IEntity obj, IReward[] value) => obj.AddValue(Loot, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasLoot(this IEntity obj) => obj.HasValue(Loot);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelLoot(this IEntity obj) => obj.DelValue(Loot);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetLoot(this IEntity obj, IReward[] value) => obj.SetValue(Loot, value);
     }
 }

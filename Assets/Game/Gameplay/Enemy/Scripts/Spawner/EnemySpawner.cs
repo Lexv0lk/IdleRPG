@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Atomic.Entities;
-using Game.GameEngine.LocationServices;
 using Game.GameEngine.Pools;
 using Game.Gameplay.GameStates;
+using Game.Gameplay.Hero;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;

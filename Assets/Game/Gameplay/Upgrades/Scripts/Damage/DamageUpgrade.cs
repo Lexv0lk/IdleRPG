@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using Atomic.Entities;
-using Game.GameEngine.LocationServices;
+using Game.Gameplay.Hero;
 using Game.Meta.Upgrades;
 using Zenject;
 

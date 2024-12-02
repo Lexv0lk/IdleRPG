@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Atomic.Entities;
-using Game.Gameplay.Combat;
+using Game.Gameplay.Enemy;
 using Game.Meta.Quests;
 using Zenject;
 

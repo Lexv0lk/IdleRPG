@@ -1,3 +1,16 @@
 {
-	"name": "GameEngine.Resources"
+    "name": "GameEngine.Resources",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d43304abcc04c03419e2ca5b2a72d297"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
