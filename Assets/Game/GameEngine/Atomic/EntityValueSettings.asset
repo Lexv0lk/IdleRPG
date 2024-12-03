@@ -154,6 +154,3 @@ MonoBehaviour:
     - id: 39
       name: EnemyId
       type: string
-    - id: 42
-      name: Loot
-      type: IReward[]

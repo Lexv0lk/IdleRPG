@@ -7,6 +7,7 @@ using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
 using UnityEngine.AI;
+using Game.Meta.Rewards;
 
 namespace Atomic.Entities
 {
