@@ -28,6 +28,7 @@ namespace Game.Meta.Upgrades
         public void SetupLevel(int level)
         {
             CurrentLevel = level;
+            LevelUp(level);
         }
 
         public void LevelUp()
@@ -36,8 +37,8 @@ namespace Game.Meta.Upgrades
                 throw new Exception($"Level of upgrade {Id} is already MAX");
 
             CurrentLevel++;
-            this.LevelUp(CurrentLevel);
-            this.OnLevelUp?.Invoke(CurrentLevel);
+            LevelUp(CurrentLevel);
+            OnLevelUp?.Invoke(CurrentLevel);
         }
 
         protected abstract void LevelUp(int level);

@@ -10,6 +10,7 @@ namespace Game.Gameplay.Upgrades
         [SerializeField] private int _baseArmor;
         [SerializeField] private int _armorStep;
         
+        [ReadOnly]
         [ListDrawerSettings(
             IsReadOnly = true,
             OnBeginListElementGUI = "DrawLevel"
@@ -31,11 +32,17 @@ namespace Game.Gameplay.Upgrades
 
         private void EvaluateTable(int maxLevel)
         {
-            _table = new int[maxLevel];
-            _table[0] = _baseArmor;
+            var table = new int[maxLevel];
 
-            for (var i = 1; i < maxLevel - 1; i++)
-                _table[i] = _baseArmor + _armorStep * i;
+            if (maxLevel > 0)
+            {
+                table[0] = _baseArmor;
+
+                for (var i = 1; i < maxLevel - 1; i++)
+                    table[i] = _baseArmor + _armorStep * i;
+            }
+
+            _table = table;
         }
 
 #if UNITY_EDITOR

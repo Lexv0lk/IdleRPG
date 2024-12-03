@@ -14,5 +14,11 @@ namespace Game.Gameplay.Upgrades
         {
             return new AttackSpeedUpgrade(this);
         }
+        
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            _attackSpeedUpgradeTable.OnValidate(MaxLevel);
+        }
     }
 }

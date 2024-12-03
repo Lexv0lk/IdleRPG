@@ -11,6 +11,7 @@ namespace Game.Gameplay.Upgrades
         [SerializeField] private float _endSpeed;
         [ShowInInspector, ReadOnly] private float _speedStep;
         
+        [ReadOnly]
         [ListDrawerSettings(
             IsReadOnly = true,
             OnBeginListElementGUI = "DrawLevel"
@@ -32,18 +33,26 @@ namespace Game.Gameplay.Upgrades
 
         private void EvaluateTable(int maxLevel)
         {
-            _table = new float[maxLevel];
-            _table[0] = _startSpeed;
-            _table[maxLevel - 1] = _endSpeed;
+            var table = new float[maxLevel];
+            var speedStep = _speedStep;
 
-            float speedStep = (_endSpeed - _startSpeed) / (maxLevel - 1);
-            _speedStep = (float)Math.Round(speedStep, 2);
-
-            for (var i = 1; i < maxLevel - 1; i++)
+            if (maxLevel > 0)
             {
-                float speed = _startSpeed + _speedStep * i;
-                _table[i] = (float)Math.Round(speed, 2);
+                table[0] = _startSpeed;
+                table[maxLevel - 1] = _endSpeed;
+
+                speedStep = (_endSpeed - _startSpeed) / (maxLevel - 1);
+                speedStep = (float)Math.Round(speedStep, 2);
+
+                for (var i = 1; i < maxLevel - 1; i++)
+                {
+                    float speed = _startSpeed + speedStep * i;
+                    table[i] = (float)Math.Round(speed, 2);
+                }
             }
+
+            _table = table;
+            _speedStep = speedStep;
         }
 
 #if UNITY_EDITOR

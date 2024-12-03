@@ -17,7 +17,7 @@ namespace Game.Meta.Upgrades
 
         public abstract Upgrade InstantiateUpgrade();
 
-        private void OnValidate()
+        protected virtual void OnValidate()
         {
             _priceTable.OnValidate(_maxLevel);
         }

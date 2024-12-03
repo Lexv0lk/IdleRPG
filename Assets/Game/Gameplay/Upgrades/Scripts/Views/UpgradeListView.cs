@@ -27,6 +27,21 @@ namespace Game.Gameplay.Upgrades
             }
         }
 
+        private void OnEnable()
+        {
+            _closeButton.onClick.AddListener(Close);
+        }
+
+        private void OnDisable()
+        {
+            _closeButton.onClick.RemoveListener(Close);
+        }
+
+        private void Close()
+        {
+            gameObject.SetActive(false);
+        }
+
         private void ClearCurrentUpgradeViews()
         {
             foreach (var (presenter, view) in _upgradeViews)

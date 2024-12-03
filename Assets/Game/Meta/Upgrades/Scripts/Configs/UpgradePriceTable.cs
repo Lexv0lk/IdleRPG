@@ -35,10 +35,14 @@ namespace Game.Meta.Upgrades
         private void EvaluatePriceTable(int maxLevel)
         {
             int[] table = new int[maxLevel];
-            table[0] = 0;
-            
-            for (var level = 2; level <= maxLevel; level++)
-                table[level - 1] = _basePrice * level;
+
+            if (maxLevel > 0)
+            {
+                table[0] = 0;
+
+                for (var level = 2; level <= maxLevel; level++)
+                    table[level - 1] = _basePrice * (level - 1);
+            }
 
             _prices = table;
         }

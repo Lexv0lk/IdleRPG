@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f8df845e9f49908cfd1279da1b5daa, type: 3}
   m_Name: Default Upgrades List
   m_EditorClassIdentifier: 
-  _availableUpgrades: []
+  _availableUpgrades:
+  - {fileID: 11400000, guid: 03d378f721a1d204e9727c8eec9968a9, type: 2}
+  - {fileID: 11400000, guid: f9d5cedad2d39ea4693239fac5bc66c7, type: 2}
+  - {fileID: 11400000, guid: e0c50cde037935d44ba3569df1474f53, type: 2}
+  - {fileID: 11400000, guid: 8f4ce9b521b28ef4d8247ac4905f92a0, type: 2}

@@ -10,6 +10,7 @@ namespace Game.Gameplay.Upgrades
         [SerializeField] private int _baseDamage;
         [SerializeField] private int _damageStep;
         
+        [ReadOnly]
         [ListDrawerSettings(
             IsReadOnly = true,
             OnBeginListElementGUI = "DrawLevel"
@@ -31,11 +32,17 @@ namespace Game.Gameplay.Upgrades
 
         private void EvaluateTable(int maxLevel)
         {
-            _table = new int[maxLevel];
-            _table[0] = _baseDamage;
+            var table = new int[maxLevel];
 
-            for (var i = 1; i < maxLevel - 1; i++)
-                _table[i] = _baseDamage + _damageStep * i;
+            if (maxLevel > 0)
+            {
+                table[0] = _baseDamage;
+
+                for (var i = 1; i < maxLevel - 1; i++)
+                    table[i] = _baseDamage + _damageStep * i;
+            }
+
+            _table = table;
         }
 
 #if UNITY_EDITOR

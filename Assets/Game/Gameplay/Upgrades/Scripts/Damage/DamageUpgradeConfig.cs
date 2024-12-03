@@ -14,5 +14,11 @@ namespace Game.Gameplay.Upgrades
         {
             return new DamageUpgrade(this);
         }
+        
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            _damageUpgradeTable.OnValidate(MaxLevel);
+        }
     }
 }

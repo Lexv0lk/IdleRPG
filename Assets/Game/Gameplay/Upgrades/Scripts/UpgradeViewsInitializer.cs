@@ -23,6 +23,9 @@ namespace Game.Gameplay.Upgrades
 
         public void OnInitialize()
         {
+            //TODO: Move to save system
+            _upgradesManager.SetupAllUpgrades();
+            
             var upgradeListPresenter =
                 new UpgradeListViewPresenter(_upgradesManager, _resourcesStorage, _configService);
             _viewsService.UpgradeListView.Initialize(upgradeListPresenter);

@@ -14,5 +14,11 @@ namespace Game.Gameplay.Upgrades
         {
             return new MovementSpeedUpgrade(this);
         }
+        
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            _movementSpeedUpgradeTable.OnValidate(MaxLevel);
+        }
     }
 }

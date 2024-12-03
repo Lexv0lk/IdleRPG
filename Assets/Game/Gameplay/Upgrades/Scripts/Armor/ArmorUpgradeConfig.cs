@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Gameplay.Upgrades
 {
-    [CreateAssetMenu(fileName = "Damage Upgrade Config", menuName = "Configs/Upgrades/Damage")]
+    [CreateAssetMenu(fileName = "Armor Upgrade Config", menuName = "Configs/Upgrades/Armor")]
     public class ArmorUpgradeConfig : UpgradeConfig
     {
         [SerializeField] private ArmorUpgradeTable _armorUpgradeTable;
@@ -13,6 +13,12 @@ namespace Game.Gameplay.Upgrades
         public override Upgrade InstantiateUpgrade()
         {
             return new ArmorUpgrade(this);
+        }
+
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            _armorUpgradeTable.OnValidate(MaxLevel);
         }
     }
 }

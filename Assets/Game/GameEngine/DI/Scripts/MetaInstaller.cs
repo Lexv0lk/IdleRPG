@@ -1,5 +1,7 @@
 ﻿using Game.GameEngine.Resource;
 using Game.Gameplay.Resource;
+using Game.Gameplay.Upgrades;
+using Game.Meta.Upgrades;
 using Zenject;
 
 namespace GameEngine.DI
@@ -14,7 +16,11 @@ namespace GameEngine.DI
 
         private void InstallUpgrades()
         {
-            
+            Container.Bind<UpgradesFactory>().AsSingle();
+            Container.Bind<UpgradesManager>().AsSingle();
+
+            Container.Bind<UpgradeViewsService>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<UpgradeViewsInitializer>().AsSingle().NonLazy();
         }
 
         private void InstallResources()

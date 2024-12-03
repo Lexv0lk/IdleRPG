@@ -12,15 +12,12 @@ namespace Game.Gameplay.Upgrades
         [SerializeField] private Image _icon;
         
         [Space]
-        [SerializeField] private TMP_Text _currentStats;
-        [SerializeField] private TMP_Text _nextImprovement;
+        [SerializeField] private TMP_Text _description;
+        [SerializeField] private TMP_Text _level;
         
         [Space]
         [SerializeField] private TMP_Text _price;
         [SerializeField] private Image _priceIcon;
-
-        [Space] 
-        [SerializeField] private GameObject _maxLevelBar;
         
         [Space]
         [SerializeField] private Button _upgradeButton;
@@ -36,32 +33,30 @@ namespace Game.Gameplay.Upgrades
             _priceIcon.sprite = _presenter.PriceIcon;
 
             _presenter.LevelUpCommand.BindTo(_upgradeButton).AddTo(this);
-
-            _presenter.CurrentStats
-                .StartWith(_presenter.CurrentStats.Value)
-                .SubscribeToTextTMP(_currentStats)
+            
+            _presenter.Description
+                .StartWith(_presenter.Description.Value)
+                .SubscribeToTextTMP(_description)
+                .AddTo(this);
+            _presenter.Level
+                .StartWith(_presenter.Level.Value)
+                .SubscribeToTextTMP(_level)
                 .AddTo(this);
             _presenter.Price
-                .StartWith(_presenter.CurrentStats.Value)
+                .StartWith(_presenter.Price.Value)
                 .SubscribeToTextTMP(_price)
-                .AddTo(this);            
-            _presenter.NextImprovement
-                .StartWith(_presenter.CurrentStats.Value)
-                .SubscribeToTextTMP(_nextImprovement)
                 .AddTo(this);
-            
-            _presenter.IsMaxLevel
-                .StartWith(_presenter.IsMaxLevel.Value)
-                .Subscribe(OnIsMaxLevelChanged)
+
+            _presenter.ShowPrice
+                .StartWith(_presenter.ShowPrice.Value)
+                .Subscribe(OnShowPriceChanged)
                 .AddTo(this);
         }
 
-        private void OnIsMaxLevelChanged(bool isMaxLevel)
+        private void OnShowPriceChanged(bool showPrice)
         {
-            _maxLevelBar.SetActive(isMaxLevel);
-            _nextImprovement.gameObject.SetActive(!isMaxLevel);
-            _price.gameObject.SetActive(!isMaxLevel);
-            _priceIcon.gameObject.SetActive(!isMaxLevel);
+            _price.gameObject.SetActive(showPrice);
+            _priceIcon.gameObject.SetActive(showPrice);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Configs;
 using Game.GameEngine.Resource;
 
 namespace Game.Meta.Upgrades
@@ -12,12 +13,12 @@ namespace Game.Meta.Upgrades
         private readonly Dictionary<string, Upgrade> _upgrades = new();
 
         public UpgradesManager(ResourcesStorage storage, 
-            DefaultUpgradesList upgradesList, UpgradesFactory factory)
+            ConfigService configService, UpgradesFactory factory)
         {
             _storage = storage;
             _factory = factory;
 
-            foreach (var upgradeConfig in upgradesList.Upgrades)
+            foreach (var upgradeConfig in configService.GetConfig<DefaultUpgradesList>().Upgrades)
             {
                 var upgrade = _factory.Instantiate(upgradeConfig);
                 _upgrades[upgrade.Id] = upgrade;
@@ -27,6 +28,13 @@ namespace Game.Meta.Upgrades
         public Upgrade[] GetAllUpgrades()
         {
             return _upgrades.Values.ToArray();
+        }
+
+        //TODO: Move to save system
+        public void SetupAllUpgrades()
+        {
+            foreach (var upgrade in _upgrades.Values)
+                upgrade.SetupLevel(1);
         }
 
         public Upgrade GetUpgrade(string id)
