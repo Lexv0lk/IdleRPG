@@ -31,7 +31,6 @@ namespace Game.Gameplay.Upgrades
         public IReadOnlyReactiveProperty<string> Price => _price;
         public Sprite PriceIcon { get; }
         
-
         public UpgradeViewPresenter(Upgrade upgrade, UpgradesManager upgradesManager,
             ResourcesStorage resourcesStorage, ResourcesCatalog resourcesCatalog)
         {
@@ -71,7 +70,8 @@ namespace Game.Gameplay.Upgrades
 
         private void LevelUp()
         {
-            
+            _upgradesManager.LevelUp(_upgrade);
+            _canUpgrade.Value = CanLevelUp();
         }
 
         ~UpgradeViewPresenter()

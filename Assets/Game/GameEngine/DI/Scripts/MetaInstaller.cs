@@ -4,9 +4,20 @@ using Zenject;
 
 namespace GameEngine.DI
 {
-    public class ResourcesInstaller : MonoInstaller
+    public class MetaInstaller : MonoInstaller
     {
         public override void InstallBindings()
+        {
+            InstallResources();
+            InstallUpgrades();
+        }
+
+        private void InstallUpgrades()
+        {
+            
+        }
+
+        private void InstallResources()
         {
             Container.Bind<ResourcesStorage>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesManager>().AsSingle().NonLazy();
