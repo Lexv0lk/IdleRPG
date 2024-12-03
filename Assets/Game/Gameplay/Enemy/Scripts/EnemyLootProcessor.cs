@@ -26,9 +26,9 @@ namespace Game.Gameplay.Enemy
 
         private void OnKilled(IEntity enemy)
         {
-            if (enemy.TryGetLoot(out var rewards))
+            if (enemy.TryGetEnemyData(out var enemyData))
             {
-                foreach (var reward in rewards)
+                foreach (var reward in enemyData.Rewards)
                 {
                     reward.Accept(this);
                     RewardProccessed?.Invoke(reward);

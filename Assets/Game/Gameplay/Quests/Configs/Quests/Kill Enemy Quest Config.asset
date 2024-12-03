@@ -22,11 +22,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: _id
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: kill_test_quest
     - Name: _metadata
       Entry: 7
-      Data: 0|Game.Meta.Quests.QuestMetadata, Meta.Quests
+      Data: 0|Game.Meta.Quests.QuestMetadata, Assembly-CSharp
     - Name: _title
       Entry: 6
       Data: 
@@ -38,7 +38,21 @@ MonoBehaviour:
       Data: 
     - Name: _rewards
       Entry: 7
-      Data: 1|Game.Meta.Rewards.IReward[], Meta.Rewards
+      Data: 1|Game.Meta.Rewards.IReward[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Game.Meta.Rewards.ResourceReward, Assembly-CSharp
+    - Name: _resources
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[Game.GameEngine.Resource.ResourceType,
+        GameEngine.Resources],[System.Int32, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.EnumEqualityComparer`1[[Game.GameEngine.Resource.ResourceType,
+        GameEngine.Resources]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -48,5 +62,35 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _targetKills: 0
-  _possibleEnemyIds: []
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _targetKills: 10
+  _targetData: {fileID: 11400000, guid: 2a36c26ab3e0f10448aa144f3e35f0e9, type: 2}

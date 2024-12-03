@@ -27,6 +27,7 @@ namespace Game.Gameplay.Quests
 
         public override float NormalizedProgress => (float)_currentKills / _config.TargetKills;
         public override string TextProgress => $"";
+        public EnemyData TargetData => _config.TargetData;
         
         public override event Action<Quest> ProgressChanged;
         
@@ -38,7 +39,7 @@ namespace Game.Gameplay.Quests
 
         private void OnEnemyKilled(IEntity enemy)
         {
-            if (_config.PossibleEnemyIds.Contains(enemy.GetEnemyId()))
+            if (enemy.GetEnemyData().Id == _config.TargetData.Id)
             {
                 _currentKills++;
                 TryComplete();

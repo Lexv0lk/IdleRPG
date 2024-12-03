@@ -1,6 +1,6 @@
 ﻿using Atomic.Elements;
 using Atomic.Entities;
-using UnityEngine;
+
 using UnityEngine.AI;
 
 namespace Game.GameEngine.Atomic.Behaviours

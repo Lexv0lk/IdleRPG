@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Gameplay.Enemy
@@ -7,7 +8,7 @@ namespace Game.Gameplay.Enemy
     public class EnemyMetadata
     {
         [SerializeField] private string _name;
-        [SerializeField] private Sprite _icon;
+        [SerializeField, PreviewField] private Sprite _icon;
 
         public string Name => _name;
         public Sprite Icon => _icon;

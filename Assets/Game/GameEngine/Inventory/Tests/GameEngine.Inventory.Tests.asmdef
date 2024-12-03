@@ -1,14 +1,10 @@
 {
-    "name": "GameEngine.InventorySystem.Tests",
+    "name": "GameEngine.Inventory.Tests",
     "rootNamespace": "",
     "references": [
-        "GUID:0acc523941302664db1f4e527237feb3",
-        "GUID:27619889b8ba8c24980f49ee34dbb44a",
-        "GUID:b8625e4622b4b404e8beaf1df9834ed1"
+        "GUID:5e37a5d0ae8d85b458dbcdafc1ba591a"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

@@ -20,6 +20,7 @@ MonoBehaviour:
   - Atomic.Elements
   - UnityEngine.AI
   - Game.Meta.Rewards
+  - Game.Gameplay.Enemy
   categories:
   - name: Movement
     indexes:
@@ -152,5 +153,5 @@ MonoBehaviour:
   - name: Enemy
     indexes:
     - id: 39
-      name: EnemyId
-      type: string
+      name: EnemyData
+      type: EnemyData

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Gameplay.Enemy;
 using Game.Meta.Quests;
 using UnityEngine;
 
@@ -8,10 +9,10 @@ namespace Game.Gameplay.Quests
     public class KillEnemyQuestConfig : QuestConfig
     {
         [SerializeField] private int _targetKills;
-        [SerializeField] private string[] _possibleEnemyIds;
+        [SerializeField] private EnemyData _targetData;
 
         public int TargetKills => _targetKills;
-        public IReadOnlyCollection<string> PossibleEnemyIds => _possibleEnemyIds;
+        public EnemyData TargetData => _targetData;
         
         public override Quest InstantiateQuest()
         {

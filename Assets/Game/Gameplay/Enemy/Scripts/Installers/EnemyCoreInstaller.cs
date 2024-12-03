@@ -9,13 +9,11 @@ namespace Game.Gameplay.Enemy
     [Serializable]
     public class EnemyCoreInstaller : IEntityInstaller
     {
-        [SerializeField] private string _enemyId;
-        [PropertySpace, SerializeField] private IReward[] _loot;
+        [SerializeField] private EnemyData _data;
         
         public void Install(IEntity entity)
         {
-            entity.AddEnemyId(_enemyId);
-            entity.AddLoot(_loot);
+            entity.AddEnemyData(_data);
         }
     }
 }
