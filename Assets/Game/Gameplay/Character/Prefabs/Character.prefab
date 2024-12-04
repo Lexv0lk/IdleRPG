@@ -455,37 +455,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5891019cf042fc802677190a7d340c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _coreInstaller:
     _navMeshAgent: {fileID: 1688309706688369961}
     _transform: {fileID: 8968346237438351072}
   _movementInstaller:
-    _movementSpeed:
-      value: 1
-    _rotationSpeed:
-      value: 45
+    _movementSpeed: 1
+    _rotationSpeed: 45
     _minimalRotationDelta: 0.1
   _combatInstaller:
-    _visionAngle:
-      value: 180
-    _visionDistance:
-      value: 1.2
-    _damage:
-      value: 5
-    _attackRate:
-      value: 1
-    _attackRange:
-      value: 1.2
+    _visionAngle: 180
+    _visionDistance: 1.2
+    _damage: 5
+    _armor: 0
+    _attackRate: 1
+    _attackRange: 1.2
     _enemyLayerMask:
       serializedVersion: 2
       m_Bits: 128
-    _regenerationValue:
-      value: 1
-    _regenerationCooldown:
-      value: 1
-    _regenerationIdleTime:
-      value: 5
-    _health:
-      value: 100
+    _regenerationValue: 1
+    _regenerationCooldown: 1
+    _regenerationIdleTime: 5
+    _health: 100
   _animationInstaller:
     _animator: {fileID: 7284133493616451488}
     _animatorDispatcher: {fileID: 6074771414240837325}

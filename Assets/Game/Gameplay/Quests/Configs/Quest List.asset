@@ -9,30 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df345ad4fb8840e8b0c68abda89bf67d, type: 3}
-  m_Name: Configs List
+  m_Script: {fileID: 11500000, guid: d062e1d43a0b456c8c21ecef2d677fbe, type: 3}
+  m_Name: Quest List
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: ff96b77db1514f44eaa29c2f461a32b9, type: 2}
-    - {fileID: 11400000, guid: e3b0fecf191a6e64181cabbfc4acb1dc, type: 2}
-    - {fileID: 11400000, guid: 75c22d23afd2c7d45becb1e19b3a88e3, type: 2}
-    - {fileID: 11400000, guid: a4521e62c6365a64d927590e1d80a7e7, type: 2}
-    - {fileID: 11400000, guid: 5c4238a6e92a8d644b344a8740861df3, type: 2}
-    - {fileID: 11400000, guid: b1c9ad43f25630242b7687439c9bdf3e, type: 2}
+    - {fileID: 11400000, guid: 5cf747c09eb3d0d4bbe44af0da6ebd6a, type: 2}
+    - {fileID: 11400000, guid: 95367f5236327c14e883f0a0b156bdb7, type: 2}
+    - {fileID: 11400000, guid: ddc4fee5f0797f349932093e7d9f8bce, type: 2}
+    - {fileID: 11400000, guid: c11a2830457e1be438bd3ce9caa92075, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _configs
+    - Name: _quests
       Entry: 7
-      Data: 0|Game.Configs.IConfig[], Configs
+      Data: 0|Game.Meta.Quests.QuestConfig[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 6
+      Data: 4
     - Name: 
       Entry: 10
       Data: 0
@@ -46,14 +44,9 @@ MonoBehaviour:
       Entry: 10
       Data: 3
     - Name: 
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 10
-      Data: 5
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
+  _useRandom: 0

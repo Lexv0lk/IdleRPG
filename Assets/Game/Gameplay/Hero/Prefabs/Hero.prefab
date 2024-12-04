@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4161648538466625530, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790052780246939319, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: autoRefresh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4790052780246939319, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: installPipeline.Array.size
@@ -25,13 +35,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
+      propertyPath: _combatInstaller._health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+    - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: _combatInstaller._attackRange
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
+      propertyPath: _movementInstaller._movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695643221116890681, guid: ed333d7eba4e64b43a4b516b32008ef8,
+        type: 3}
       propertyPath: _movementInstaller._movementSpeed.value
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15.7
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
@@ -41,27 +72,27 @@ PrefabInstance:
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 59.4
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99823207
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.059437033
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
@@ -71,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 6.815
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8968346237438351072, guid: ed333d7eba4e64b43a4b516b32008ef8,
         type: 3}
@@ -111,11 +142,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d76fb849b240ecb926808f062cc762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _movementInstaller:
     _moveDirection:
       value: {x: 0, y: 0, z: 0}
-    _rotationSpeed:
-      value: 45
-    _minimalRotationDelta: 0.05
   _visualInstaller:
     _weaponObject: {fileID: 5359412490060196022}

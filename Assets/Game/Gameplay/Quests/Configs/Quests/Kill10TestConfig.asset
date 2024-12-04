@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800896504d0a48258e2f6fb35c8cc88d, type: 3}
+  m_Name: Kill10TestConfig
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 27e9bb522f9e6b7439c6f562f94fce25, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _id
+      Entry: 1
+      Data: kill10_test_quest
+    - Name: _metadata
+      Entry: 7
+      Data: 0|Game.Meta.Quests.QuestMetadata, Assembly-CSharp
+    - Name: _title
+      Entry: 1
+      Data: "\u0423\u0431\u0438\u0442\u044C \u0432\u0440\u0430\u0433\u043E\u0432"
+    - Name: _description
+      Entry: 1
+      Data: "\u0423\u0431\u0435\u0439 \u0442\u0435\u0441\u0442\u043E\u0432\u044B\u0445
+        \u0432\u0440\u0430\u0433\u043E\u0432"
+    - Name: _icon
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _rewards
+      Entry: 7
+      Data: 1|Game.Meta.Rewards.IReward[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|Game.Meta.Rewards.ResourceReward, Assembly-CSharp
+    - Name: _resources
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[Game.GameEngine.Resource.ResourceType,
+        GameEngine.Resources],[System.Int32, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.EnumEqualityComparer`1[[Game.GameEngine.Resource.ResourceType,
+        GameEngine.Resources]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _targetKills: 1
+  _targetData: {fileID: 11400000, guid: 2a36c26ab3e0f10448aa144f3e35f0e9, type: 2}

@@ -9,8 +9,8 @@ namespace Game.Gameplay.Character
     [Serializable]
     public class CharacterMovementInstaller : IEntityInstaller
     {
-        [SerializeField] private ReactiveVariable<float> _movementSpeed;
-        [SerializeField] private ReactiveVariable<float> _rotationSpeed;
+        [SerializeField] private float _movementSpeed;
+        [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _minimalRotationDelta;
         
         public void Install(IEntity entity)

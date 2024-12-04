@@ -10,23 +10,23 @@ namespace Game.Gameplay.Character
     public class CharacterCombatInstaller : IEntityInstaller
     {
         [Header("Vision Settings")] 
-        [SerializeField] private ReactiveVariable<float> _visionAngle;
-        [SerializeField] private ReactiveVariable<float> _visionDistance;
+        [SerializeField] private float _visionAngle;
+        [SerializeField] private float _visionDistance;
         
         [Header("Attack Settings")]
-        [SerializeField] private ReactiveVariable<int> _damage;
-        [SerializeField] private ReactiveVariable<int> _armor;
-        [SerializeField] private ReactiveVariable<float> _attackRate;
-        [SerializeField] private ReactiveVariable<float> _attackRange;
+        [SerializeField] private int _damage;
+        [SerializeField] private int _armor;
+        [SerializeField] private float _attackRate;
+        [SerializeField] private float _attackRange;
         [SerializeField] private LayerMask _enemyLayerMask;
 
         [Header("Health Regeneration")] 
-        [SerializeField] private ReactiveVariable<int> _regenerationValue;
-        [SerializeField] private ReactiveVariable<float> _regenerationCooldown;
-        [SerializeField] private ReactiveVariable<float> _regenerationIdleTime;
+        [SerializeField] private int _regenerationValue;
+        [SerializeField] private float _regenerationCooldown;
+        [SerializeField] private float _regenerationIdleTime;
 
         [Header("Combat Stats")] 
-        [SerializeField] private ReactiveVariable<int> _health;
+        [SerializeField] private int _health;
         
         public void Install(IEntity entity)
         {
@@ -38,7 +38,7 @@ namespace Game.Gameplay.Character
             entity.AddAttackRate(_attackRate);
             entity.AddAttackRange(_attackRange);
             entity.AddHealth(_health);
-            entity.AddMaxHealth(new ReactiveVariable<int>(_health.Value));
+            entity.AddMaxHealth(new ReactiveVariable<int>(_health));
             entity.AddIsDead(new ReactiveVariable<bool>(false));
 
             entity.AddRegenerationValue(_regenerationValue);
