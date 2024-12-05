@@ -29,6 +29,7 @@ namespace Game.Meta.Upgrades
         {
             CurrentLevel = level;
             LevelUp(level);
+            OnLevelUp?.Invoke(CurrentLevel);
         }
 
         public void LevelUp()

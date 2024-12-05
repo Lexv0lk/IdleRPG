@@ -17,5 +17,7 @@ namespace Game.Meta.Quests
         public IReadOnlyCollection<IReward> Rewards => _rewards;
 
         public abstract Quest InstantiateQuest();
+        public abstract string Serialize(Quest quest);
+        public abstract void DeserializeTo(string state, Quest quest);
     }
 }

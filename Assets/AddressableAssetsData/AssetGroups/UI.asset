@@ -29,6 +29,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28fe04856623c7f44a598a2e647e3d93
+    m_Address: ResourceView
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0d59c4b6e6ae1a41979f58cb5536e2e
+    m_Address: RebirthButton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1178f436b5e783c44a289b922bb36bdc, type: 2}
   m_SchemaSet:

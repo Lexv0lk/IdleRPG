@@ -38,7 +38,7 @@ MonoBehaviour:
       type: float
     - id: 4
       name: CanMove
-      type: AndExpression
+      type: ReactiveVariable<bool>
     - id: 8
       name: IsMoving
       type: ReactiveVariable<bool>

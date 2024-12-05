@@ -1,12 +1,14 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Zenject;
 
 namespace Game.App.Loading
 {
     public class GameLoader
     {
         private readonly GameLoadingPipeline _pipeline;
-        
+        private readonly DiContainer _diContainer;
+
         public float CurrentProgress { get; private set; }
         public IGameLoadingTask CurrentTask { get; private set; }
 
@@ -14,9 +16,10 @@ namespace Game.App.Loading
         public event Action<IGameLoadingTask> ActiveTaskChanged;
         public event Action Completed;
 
-        public GameLoader(GameLoadingPipeline pipeline)
+        public GameLoader(GameLoadingPipeline pipeline, DiContainer diContainer)
         {
             _pipeline = pipeline;
+            _diContainer = diContainer;
         }
 
         public async UniTask Load()
@@ -28,6 +31,7 @@ namespace Game.App.Loading
                 ProgressChanged?.Invoke(CurrentProgress);
                 ActiveTaskChanged?.Invoke(CurrentTask);
                 
+                _diContainer.Inject(_pipeline.LoadingTasks[i]);
                 await _pipeline.LoadingTasks[i].Do();
             }
             

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Game.UI;
 using UnityEngine;
 using UniRx;
 using UnityEngine.UI;
@@ -18,11 +18,13 @@ namespace Game.Gameplay.Quests
         private QuestCatalogViewPresenter _presenter;
         private CompositeDisposable _compositeDisposable;
         private DiContainer _diContainer;
+        private UIOpenCloseController _uiOpenCloseController;
         
         [Inject]
-        private void Construct(DiContainer diContainer)
+        private void Construct(DiContainer diContainer, UIOpenCloseController uiOpenCloseController)
         {
             _diContainer = diContainer;
+            _uiOpenCloseController = uiOpenCloseController;
         }
 
         private void OnEnable()
@@ -87,7 +89,7 @@ namespace Game.Gameplay.Quests
 
         private void Close()
         {
-            gameObject.SetActive(false);
+            _uiOpenCloseController.Close(gameObject);
         }
 
         private void OnDestroy()

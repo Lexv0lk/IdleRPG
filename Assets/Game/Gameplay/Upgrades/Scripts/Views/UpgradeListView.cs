@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Game.UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Game.Gameplay.Upgrades
 {
@@ -13,6 +15,13 @@ namespace Game.Gameplay.Upgrades
         [SerializeField] private Button _closeButton;
 
         private UpgradeListViewPresenter _presenter;
+        private UIOpenCloseController _uiOpenCloseController;
+        
+        [Inject]
+        private void Construct(UIOpenCloseController uiOpenCloseController)
+        {
+            _uiOpenCloseController = uiOpenCloseController;
+        }
         
         public void Initialize(UpgradeListViewPresenter presenter)
         {
@@ -39,7 +48,7 @@ namespace Game.Gameplay.Upgrades
 
         private void Close()
         {
-            gameObject.SetActive(false);
+            _uiOpenCloseController.Close(gameObject);
         }
 
         private void ClearCurrentUpgradeViews()

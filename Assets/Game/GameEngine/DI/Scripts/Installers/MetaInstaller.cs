@@ -22,7 +22,7 @@ namespace GameEngine.DI
         private void InstallUpgrades()
         {
             Container.Bind<UpgradesFactory>().AsSingle();
-            Container.Bind<UpgradesManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<UpgradesManager>().AsSingle();
 
             Container.Bind<UpgradeViewsService>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<UpgradeViewsInitializer>().AsSingle().NonLazy();
@@ -44,7 +44,7 @@ namespace GameEngine.DI
             Container.Bind<QuestViewsService>().FromComponentInHierarchy().AsSingle();
             Container.Bind<QuestFactory>().AsSingle();
             Container.Bind<QuestSupplier>().AsSingle();
-            Container.Bind<QuestsManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<QuestsManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<QuestViewsInitializer>().AsSingle();
         }
     }

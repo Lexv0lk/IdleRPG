@@ -22,10 +22,8 @@ namespace Game.Gameplay.Character
             var canRotate = new AndExpression();
             canRotate.Append(() => entity.GetIsDead().Value == false);
             entity.AddCanRotate(canRotate);
-
-            var canMove = new AndExpression();
-            canMove.Append(() => entity.GetIsDead().Value == false);
-            entity.AddCanMove(canMove);
+            
+            entity.AddCanMove(new ReactiveVariable<bool>(true));
             
             entity.AddIsMoving(new ReactiveVariable<bool>(false));
             entity.AddBehaviour(new RotationBehaviour(_minimalRotationDelta));

@@ -35,6 +35,9 @@ namespace Game.GameEngine.Atomic.Behaviours
             {
                 _isDead.Value = true;
                 _dieEvent.Invoke(_entity);
+
+                if (_entity.TryGetCanMove(out var canMove))
+                    canMove.Value = false;
             }
         }
     }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Game.Gameplay.Enemy;
 using Game.Meta.Quests;
 using UnityEngine;
@@ -17,6 +16,19 @@ namespace Game.Gameplay.Quests
         public override Quest InstantiateQuest()
         {
             return new KillEnemyQuest(this);
+        }
+
+        public override string Serialize(Quest quest)
+        {
+            var killEnemyQuest = (KillEnemyQuest)quest;
+            return killEnemyQuest.CurrentKills.ToString();
+        }
+
+        public override void DeserializeTo(string state, Quest quest)
+        {
+            int kills = int.Parse(state);
+            var killEnemyQuest = (KillEnemyQuest)quest;
+            killEnemyQuest.Setup(kills);
         }
     }
 }

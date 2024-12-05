@@ -12,7 +12,6 @@ namespace Game.Gameplay.Quests
         private readonly KillEnemyQuestConfig _config;
 
         private EnemyKillObserver _killObserver;
-        private int _currentKills;
 
         public KillEnemyQuest(KillEnemyQuestConfig config) : base(config)
         {
@@ -24,24 +23,33 @@ namespace Game.Gameplay.Quests
         {
             _killObserver = killObserver;
         }
+        
+        public int CurrentKills { get; private set; }
 
-        public override float NormalizedProgress => (float)_currentKills / _config.TargetKills;
-        public override string TextProgress => $"{_currentKills}/{_config.TargetKills}";
+        public override float NormalizedProgress => (float)CurrentKills / _config.TargetKills;
+        public override string TextProgress => $"{CurrentKills}/{_config.TargetKills}";
         public EnemyData TargetData => _config.TargetData;
         
         public override event Action<Quest> ProgressChanged;
         
         protected override void OnStart()
         {
-            _currentKills = 0;
+            CurrentKills = 0;
             _killObserver.Killed += OnEnemyKilled;
+        }
+
+        public void Setup(int kills)
+        {
+            CurrentKills = kills;
+            ProgressChanged?.Invoke(this);
+            TryComplete();
         }
 
         private void OnEnemyKilled(IEntity enemy)
         {
             if (enemy.GetEnemyData().Id == _config.TargetData.Id)
             {
-                _currentKills++;
+                CurrentKills++;
                 ProgressChanged?.Invoke(this);
                 TryComplete();
             }

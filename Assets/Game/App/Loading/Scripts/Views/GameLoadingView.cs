@@ -8,7 +8,7 @@ namespace Game.App.Loading.Views
 {
     public class GameLoadingView : MonoBehaviour
     {
-        [SerializeField] private Slider _progressSlider;
+        [SerializeField] private Image _progressSlider;
         [SerializeField] private TMP_Text _description;
         
         public void Initialize(GameLoadingViewPresenter presenter)
@@ -26,7 +26,7 @@ namespace Game.App.Loading.Views
 
         private void OnProgressChanged(float val)
         {
-            _progressSlider.value = val;
+            _progressSlider.fillAmount = val;
         }
     }
 }

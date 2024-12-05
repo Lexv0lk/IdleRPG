@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Game.Configs;
+using Game.GameEngine.DI;
 using Game.GameEngine.Resource;
 
 namespace Game.Meta.Upgrades
 {
-    public class UpgradesManager
+    public class UpgradesManager : IGameService
     {
         private readonly ResourcesStorage _storage;
         private readonly UpgradesFactory _factory;
@@ -28,13 +29,6 @@ namespace Game.Meta.Upgrades
         public Upgrade[] GetAllUpgrades()
         {
             return _upgrades.Values.ToArray();
-        }
-
-        //TODO: Move to save system
-        public void SetupAllUpgrades()
-        {
-            foreach (var upgrade in _upgrades.Values)
-                upgrade.SetupLevel(1);
         }
 
         public Upgrade GetUpgrade(string id)

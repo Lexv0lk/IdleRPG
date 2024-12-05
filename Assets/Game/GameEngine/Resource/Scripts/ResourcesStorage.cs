@@ -7,6 +7,8 @@ namespace Game.GameEngine.Resource
     {
         private readonly Dictionary<ResourceType, int> _resources = new();
 
+        public IReadOnlyDictionary<ResourceType, int> Resources => _resources;
+
         public event Action<ResourceType, int> ResourceAdded;
         public event Action<ResourceType, int> ResourceSpent;
         public event Action<ResourceType, int> ResourceChanged;

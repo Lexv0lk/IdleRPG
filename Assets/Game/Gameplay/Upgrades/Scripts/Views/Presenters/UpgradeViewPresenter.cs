@@ -50,7 +50,13 @@ namespace Game.Gameplay.Upgrades
             LevelUpCommand = new ReactiveCommand(_canLevelUp, CanLevelUp());
             LevelUpCommand.Subscribe(OnLevelUpCommand);
             
-            _resourcesStorage.ResourceChanged += OnResourceChanged;   
+            _resourcesStorage.ResourceChanged += OnResourceChanged; 
+            _upgrade.OnLevelUp += OnUpgradeLevelUp;
+        }
+
+        private void OnUpgradeLevelUp(int _)
+        {
+            UpdateValues();
         }
 
         private void OnLevelUpCommand(Unit obj)
@@ -71,6 +77,10 @@ namespace Game.Gameplay.Upgrades
         private void LevelUp()
         {
             _upgradesManager.LevelUp(_upgrade);
+        }
+
+        private void UpdateValues()
+        {
             _canLevelUp.Value = CanLevelUp();
             _description.Value = GetCurrentDescription();
             _level.Value = GetCurrentLevel();
@@ -93,7 +103,8 @@ namespace Game.Gameplay.Upgrades
 
         ~UpgradeViewPresenter()
         {
-            _resourcesStorage.ResourceChanged -= OnResourceChanged;   
+            _resourcesStorage.ResourceChanged -= OnResourceChanged;  
+            _upgrade.OnLevelUp -= OnUpgradeLevelUp;
         }
     }
 }
